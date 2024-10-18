@@ -17,7 +17,7 @@ public class SumOfDigits {
 
      System.out.printf("The sum of all digits is %d%n", sum);
      
-} // 
+} 
 
 
-} // 
+}
