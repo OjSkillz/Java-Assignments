@@ -1,9 +1,6 @@
-/** This is an application that can read a number of integer inputs,  determine the number of negative integers, positive integers and zeros input */
 
-// 2.32 Negative, Positive and Zeroes input
 
-import java.util.Scanner; /* import Scanner to read input from command window/user */
-
+import java.util.Scanner; 
 public class Determinant {
    public static void main(String[] args) {
      Scanner input = new Scanner(System.in);
