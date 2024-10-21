@@ -1,0 +1,15 @@
+Pseudocode : Sum Of Natural Numbers
+
+Stage 1:
+
+1. Prompt and Collect first 10 natural numbers
+2. Calculate the sum of the first 10 natural numbers
+3. Display result
+
+Stage 2:
+
+1. Set counter of natural numnbers to begin at 1
+2. Set sum to begin at 0
+3. Prompt user to enter the first ten natural numbers beginning with 1
+4. While the natural number is less than or equal to 10, let sum be equal to sum + the natural number while also incrementing the counter of natural numbers by 1.
+5. At the end of the inputs, display the sum of the first 10 natural numbers.
