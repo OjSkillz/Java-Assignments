@@ -1,0 +1,10 @@
+Multiplication Table
+
+Pseudocode:
+
+1. Read in the number for which a multiplication table will be calculated from the user
+2. Store as a constant value
+3. Read in the number of terms which determines the level to which the multiplication table will be developed.
+4. Calculate and develop the multiplication table corresponding to the information provided.
+5. Print the multiplication table
+
