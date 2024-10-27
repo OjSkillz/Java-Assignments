@@ -1,0 +1,18 @@
+2. Solving Quadratic Equations
+
+Pseudocode:
+
+1. Read in the coefficients a, b and c of a quadratic equation from a user
+2. Use coefficients a, b and c to solve the quadratic equation using the formula:
+	x = (-b +- (b^2 - 4ac)^0.5) / 2a
+	where the expression on the right evaluates to two values of x roots of the
+	equation
+	
+3. Display the two roots of the equation based on the following conditions:
+	- if (b^2 - 4ac), known as the determinant is greater than 0 (for which there will
+	be two real roots)
+	- if (b^2 - 4ac) is less than 0 (for which there will be two complex roots)
+	- if (b^2 - 4ac) is equal to 0 (for which there will be one real solution 
+	repeated)
+	
+	
