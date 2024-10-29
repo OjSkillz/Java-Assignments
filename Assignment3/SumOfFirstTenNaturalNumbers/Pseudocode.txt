@@ -1,0 +1,9 @@
+Calculating the sum of the first ten natural numbers
+
+A natural number is 
+Set a counter to begin at 1
+Initialize the sum to begin at the value of the counter
+While the control variable is incrementing by 1 step up to 10, and the sum is incrementing correspondingly,
+	calculate the sum of the first 10 natural numbers 
+	
+Display the result 

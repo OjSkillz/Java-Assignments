@@ -1,0 +1,8 @@
+Displaying WeekDay from user integer input
+
+Prompt user to enter a number from 1 - 7
+Read in the user's input
+Determine the weekday from the user's integer input by checking for the remainder of the input divided by the number of days in a week (7 days)
+
+	if the remainder is in the range 0 - 6 display the corresponding weekday from
+	Sunday - Saturday 
