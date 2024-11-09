@@ -1,0 +1,11 @@
+Pseudocode for Course Instructor Application
+
+Prompt user to choose their course from the options (Math, Science, History)
+Read in the user's choice
+
+Prompt user to choose their grade level from the options (Freshman, Sophomore, Junior, Senior)
+Read in the user's choice
+
+Print a course instructor based on the user's choices
+
+

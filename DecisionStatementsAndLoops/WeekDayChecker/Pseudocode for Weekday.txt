@@ -1,0 +1,8 @@
+Pseudocode for Weekday Checker
+
+Prompt user to input any number between 1 and 7
+Collect and store as weekDayNumber
+
+Compare weekDayNumber with the days of the week starting with Monday as 1 up to Sunday as 7
+
+Display the weekday matched by the weekDayNumber

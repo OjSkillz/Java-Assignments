@@ -1,0 +1,10 @@
+Pseudocode for Eligibility Checker
+
+Prompt user to enter their age
+Collect and store as userAge
+	If userAge is 16 and above
+		Print "You can drive"
+	if userAge is 18 and above
+		Print "You can vote"
+	If userAge is 21 and above
+		Print "You can drink"

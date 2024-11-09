@@ -1,0 +1,10 @@
+Pseudocode for  Area of Shapes
+
+Prompt user  to enter preferred shape
+Read in user's choice
+
+Prompt user to choose whether to supply the required parameters to calculate the area of the chosen shape
+Read in the user's specifications if so
+
+Calculate and display the area of the user's chosen shape
+
