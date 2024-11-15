@@ -1,0 +1,8 @@
+Pseudocode for MBTI Application
+
+Prompt user to select one option out of two for  a test of 20 personality traits 
+Collect responses
+
+Use responses to evaluate user's personality 
+
+Display results of test
