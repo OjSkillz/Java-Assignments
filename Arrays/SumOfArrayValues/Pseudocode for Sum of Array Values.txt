@@ -1,7 +1,7 @@
 Pseudocode for Sum of Array Values
 
-Set a variable to hold total values to 0
-Declare and initialize an array variable
-Find the sum of the values of the array by adding each of them to the variable holding total values
+Initialize a variable "total"  to hold the sum of values from 0
+Prompt user to enter an array of integer values
+Find the sum of the values of the array by adding each of them to the variable "total"
 
 Print the sum of the values of the array
