@@ -1,0 +1,11 @@
+Pseudocode for Lcm Of Two Numbers
+
+Initialize a variable "multiple" to begin from 2 to avoid zero division error
+Prompt user to enter two whole numbers
+Read in both numbers
+Store each input as "firstNumber" and "secondNumber" respectively
+While variable multiple is less than or equal to 1000 and not equal to either of both numbers
+	If multiple leaves a remainder of 0 when divided by both numbers
+		print "multiple" and terminate the loop
+	increment "multiple" by 1 step
+
