@@ -1,0 +1,17 @@
+
+Create an array and initialize it with integer elements 
+Initialize a variable "sum" to hold the sum of the elements of the array
+Compute the sum of the elements of the array using a for loop :
+	For each iteration equalling the number of elements in the array
+		update sum by adding each element of the array
+
+Compute the sum of the elements of the array using a while loop :
+	While the number of elements in the array are not exhausted
+		update sum by adding each element of the array
+	Increment the counter of elements in the array
+
+Compute the sum of the elements of the array using a do-while loop :
+	Update sum by adding the first element of the array
+	Repeat that operation while there is still an element in the array
+
+Print the value of "sum" for each loop computation
