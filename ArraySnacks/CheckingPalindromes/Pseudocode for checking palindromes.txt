@@ -1,0 +1,9 @@
+Pseuocode for checking palindromes
+
+Prompt user to input a string 
+
+ if the string reads the same backward as forward
+	 print "String is a palindrome"
+Else 
+	print "String is not a palindrome"
+
