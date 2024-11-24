@@ -1,0 +1,9 @@
+Create an array and initialize it with integer elements
+
+Create a new array "runningTotals" to hold the running totals of the elements in the initial array
+
+Assign the element at index 0 of "runningTotals" the value of the element at index 0 of the intial array
+
+Compute the next elements of "runningTotals" by adding each element of the initial array to the element at the preceding index of "runningTotals"
+
+Print the runningTotals with an appropriate message
