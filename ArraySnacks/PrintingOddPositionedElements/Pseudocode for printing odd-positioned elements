@@ -1,0 +1,6 @@
+Pseudocode for printing odd-positioned elements 
+
+Create an array and initialize it with integer elements
+
+Print the elements at the odd positions of the array
+	
