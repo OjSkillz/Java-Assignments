@@ -14,8 +14,8 @@ Display class summary after input collection
 """
 students = []
 subjects = []
-scores = []
-scores_per_subject = []
+
+scores_per_student = {}
 totals = []
 total = 0
 def update_students_list(number_of_students):
@@ -39,22 +39,20 @@ update_students_list(number_of_students)
 
 number_of_subjects = int(input("How many subjects do they offer? >> "))
 print(update_subjects(number_of_subjects))
-for index in range(len(students)):
+for index in range(1, number_of_students + 1):
     print()
-    print(f"Entering Scores for Student {index + 1}") 
-    for subject in (subjects):
-        score = int(input(f"Enter score for {subject} >> "))
+    print(f"Entering Scores for Student {index}") 
+    scores = []
+    for count in range(1, number_of_subjects + 1):
+        score = int(input(f"Enter score for Subject {count} >> "))
         while score < 0 or score > 100:
             print("\nInvalid entry. Enter scores between 0 and 100")
-            score = int(input(f"Enter score for {subject} >> "))
+            score = int(input(f"Enter score for Subject {count} >> "))
         scores.append(score)
         print("Saved Successfully")
-for counter in range(number_of_subjects):
-    for count in range(counter, len(scores), number_of_subjects):
-       total += scores[count]
-    totals.append(total)
-print(scores)
-print(totals)
+        scores_per_student[students[index-1]] = scores
+print(scores_per_student)
+
 
 
 
