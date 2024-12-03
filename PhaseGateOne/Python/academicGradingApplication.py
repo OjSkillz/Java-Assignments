@@ -40,13 +40,24 @@ def update_averages():
     return averages
     
 def display_header():
-    print("=" * 56)
+    print("=" * 70)
     for subject in subjects[: : -1]:
         header.insert(1, subject)
     for element in header:
-        print(f"{element}\t",end=" ")
+        print(f"{element:<10}",end=" ")
     print()
-    print("=" * 56)
+    print("=" * 70)
+
+def display_results():
+    for key,value in scores_per_student.items():
+        print(f"{key:<10}")
+    print("\t",end=" ")
+    for values in scores_per_student.values():
+        for count in range(len(values)):
+            print(f"{values[count]:<5}")
+ 
+    
+
 
 number_of_students = int(input("How many students do you have? >> "))
 update_students_list(number_of_students)
@@ -67,8 +78,9 @@ for index in range(1, number_of_students + 1):
         print("Saved Successfully")
         print()
         scores_per_student[students[index-1]] = scores
-print(subjects)
+
 update_totals()
 update_averages()
 display_header()
+display_results()
 
