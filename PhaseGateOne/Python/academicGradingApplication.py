@@ -47,3 +47,5 @@ for index in range(len(subjects)):
             score = int(input(f"Enter score for {subject} >> "))
         scores.append(score)
     print("Saved Successfully")
+    
+

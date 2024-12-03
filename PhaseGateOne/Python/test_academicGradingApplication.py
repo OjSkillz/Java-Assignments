@@ -10,4 +10,7 @@ class TestAcademicGradingApplication(TestCase):
         expected = ["SUB 1", "SUB 2"]
         self.assertEqual(actual, expected)
         
-    
+    def test_that_function_update_subjects_per_student_returns_correct_values(self):
+        actual = academicGradingApplication.update_subjects_per_student(2,2)
+        expected =[["SUB 1", "SUB 2"], ["SUB 1", "SUB 2"]]
+        self.assertEqual(actual, expected)
