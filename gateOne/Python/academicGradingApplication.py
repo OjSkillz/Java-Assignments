@@ -18,20 +18,27 @@ subjects = []
 scores_per_student = {}
 totals = []
 averages = []
-merged_grades = {}
+merged_grades = []
 positions = []
 
 header = {"STUDENT" : ["TOT", "AVE", "POS"]}
+header_list = []
 def update_students_list(number_of_students):
     for count in range(number_of_students):
-        students.append(f"Student {count + 1}")
+        students.append(f"Student{count + 1}")
     return students
 
 def update_subjects(number_of_subjects):
     for count in range(number_of_subjects):
         subjects.append(f"SUB {count+1}")
     return subjects
-
+    
+def update_scores_per_student():
+    for value in scores_per_student.values():
+        value.append(sum(value))
+        value.append(float(f"{sum(value)/len(value):.2f}"))
+    return scores_per_student
+    
 def update_totals():
     for value in scores_per_student.values():
         totals.append(sum(value))
@@ -50,32 +57,47 @@ def update_positions():
     for key in range(len(position_values)):
         positions.append(count + 1)
     return positions
-def update_scores_per_student():
-    for value in scores_per_student.values():
-        value.append(sum(value))
-        value.append(float(f"{sum(value)/len(value):.2f}"))
-    return scores_per_student
+
    
 def update_merged_grades():
-    for key,value in zip(students, totals):
-        merged_grades[key] = value
-    return (merged_grades.sort())  
+    for key,value in scores_per_student.items():
+        merged_grades.append(key)
+        merged_grades.extend(value)
+    return merged_grades  
     
     
 def display_header():
-    print("=" * 80)
+    print("=" * 100)
     for subject in subjects[: : -1]:
         header["STUDENT"].insert(0, subject)
     for key,value in header.items():
-        print(f"{key:<12}" + "\t".join(value), end=" ")
+        header_list.append(key)
+        header_list.extend(value)
+    for index in range(len(header_list)):
+        print(f"{header_list[index]:<9}",end=" ")
     print()
-    print("=" * 80)
+    print("=" * 100)
 
 def display_results():
-    for key,value in scores_per_student.items():
-        print(f"{key:<20}" +"\t".join(map(str, value)))
-      
-            
+    for key, values in scores_per_student.items():
+        print(f"{key:<9}", end=" ")
+        for value in values:
+            print(f"{value:<9}", end=" ")
+        print()
+    print("=" * 100)
+    print()
+    print("=" * 100)
+
+"""def get_highest_in_subject_one():
+    subject_one_scores = []
+    for values in scores_per_student.values():
+        subject_one_scores.append(values[0])
+    subject_one_rankings = dict(zip(students, subject_one_scores))
+    subject_one_keys = list(subject_one_rankings.keys())
+    subject_one_keys.sort(reverse=True)
+    subject_one_rankings = {key: subject_one_rankings[key] for key in subject_one_keys}
+    return f"Subject 1\nHighest scoring student is:  {subject_one_rankings{key[0]}} scoring {subject_one_rankings{value[0]}}"
+"""                   
  
     
 
@@ -92,7 +114,7 @@ for index in range(1, number_of_students + 1):
     scores = []
     for count in range(1, number_of_subjects + 1):
         score = int(input(f"Enter score for {subjects[count - 1]} >> "))
-        while score < 0 or score > 100:
+        while score < 0 or score > 100 :
             print("\nInvalid entry. Enter scores between 0 and 100")
             score = int(input(f"Enter score for {subjects[count - 1]} >> "))
         scores.append(score)
@@ -102,11 +124,9 @@ for index in range(1, number_of_students + 1):
 
 update_totals()
 update_averages()
-print(totals)
 update_scores_per_student()
-print(scores_per_student)
 display_header()
-print(header)
+update_merged_grades()
 display_results()
-update_positions()
-print(positions)
+#get_highest_in_subject_one()
+
