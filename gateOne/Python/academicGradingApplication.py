@@ -19,8 +19,8 @@ scores_per_student = {}
 totals = []
 averages = []
 merged_grades = []
-positions = []
-
+positions = {}
+positions_keys = []
 header = {"STUDENT" : ["TOT", "AVE", "POS"]}
 header_list = []
 def update_students_list(number_of_students):
@@ -50,13 +50,16 @@ def update_averages():
     return averages
 
 def update_positions():
-    position_values = []
-    totals.sort(reverse=True)
-    for total in totals:
-        position_values.append(total)
-    for key in range(len(position_values)):
-        positions.append(count + 1)
-    return positions
+    position = 0
+    positions = dict(zip(students, totals))
+    positions = {key: value for key,value in sorted(positions.items(), key = lambda item: item[1], reverse  = True)}
+    for value in positions.values():
+        for values in scores_per_student.values():
+            if  value in values: 
+                position = position + 1
+                values.append(position)
+    return scores_per_student
+
 
    
 def update_merged_grades():
@@ -128,5 +131,5 @@ update_scores_per_student()
 display_header()
 update_merged_grades()
 display_results()
-#get_highest_in_subject_one()
+
 
