@@ -116,7 +116,8 @@ def display_class_summary():
     print()
     print("CLASS SUMMARY")
     print("=" * 100)
-    print(totals)
+    print(f"Best Graduating Student is: {students[totals.index(max(totals))]} scoring {max(totals)}")
+    print("=" * 100)
         #if overall_highest_score in values:
             #stud_overall_score = scores_per_student[values.index(overall_highest_score)]
     #print(stud_overall_score)
