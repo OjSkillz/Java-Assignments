@@ -98,11 +98,28 @@ def print_subject_difficulty():
     print(f"{'=' * 100}\n{'=' * 100}")
     print(f"The hardest subject is {subjects[fails.index(max(fails))]} with {max(fails)} failures")
     print(f"The easiest subject is {subjects[passes.index(max(passes))]} with {max(passes)} passes")
-    for key,values in scores_per_student.items():
-        overall_highest_score = max(values[: len(students) - 1:])
-        overall_lowest_score = min(values[: len(students) - 1:])
-    print(overall_highest_score)
-    print(overall_lowest_score)
+    maximum_scores = []
+    minimum_scores = []
+    for values in scores_per_student.values():
+        maximum_scores.append(max(values[ : len(students) - 1: ]))
+        minimum_scores.append(min(values[ : len(students) - 1: ]))
+    overall_highest_score = max(maximum_scores)
+    overall_lowest_score = min(minimum_scores)
+    for key,value in scores_per_student.items():
+        if overall_lowest_score in value:
+            print(f"The overall lowest score is {overall_lowest_score} scored by {key} in {subjects[value.index(overall_lowest_score)]}")
+        if overall_highest_score in value: 
+            print(f"The overall highest score is {overall_highest_score} scored by {key} in {subjects[value.index(overall_highest_score)]}")
+    print("=" * 100)
+
+def display_class_summary():
+    print()
+    print("CLASS SUMMARY")
+    print("=" * 100)
+    print(totals)
+        #if overall_highest_score in values:
+            #stud_overall_score = scores_per_student[values.index(overall_highest_score)]
+    #print(stud_overall_score)
     #print(f"The overall Highest score is {overall_highest_score} scored by {key[overall_highest_score]}")
     #print(f"The overall Lowest score is {overall_lowest_score} scored by {key[overall_lowest_score]}")
 
@@ -172,4 +189,4 @@ update_positions()
 display_results()
 display_subject_summary()
 print_subject_difficulty()
-
+display_class_summary()
