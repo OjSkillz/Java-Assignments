@@ -1,3 +1,5 @@
+import os
+
 """
 Pseudocode for student grading application
 
@@ -14,7 +16,6 @@ Display class summary after input collection
 """
 students = []
 subjects = []
-
 scores_per_student = {}
 totals = []
 averages = []
@@ -23,9 +24,12 @@ positions = {}
 positions_keys = []
 header = {"STUDENT" : ["TOT", "AVE", "POS"]}
 header_list = []
+passes = []
+fails = []
+
 def update_students_list(number_of_students):
     for count in range(number_of_students):
-        students.append(f"Student{count + 1}")
+        students.append(f"Student {count + 1}")
     return students
 
 def update_subjects(number_of_subjects):
@@ -36,7 +40,7 @@ def update_subjects(number_of_subjects):
 def update_scores_per_student():
     for value in scores_per_student.values():
         value.append(sum(value))
-        value.append(float(f"{sum(value)/len(value):.2f}"))
+        value.append(float(f"{value[len(value) -1]/len(subjects):.2f}"))
     return scores_per_student
     
 def update_totals():
@@ -61,6 +65,49 @@ def update_positions():
     return scores_per_student
 
 
+def display_subject_summary():
+    print()
+    print("SUBJECT SUMMARY")
+    for count in range(len(subjects)):
+        subject_scores = []
+        cut_off_mark = 40
+        number_of_passes = 0
+        number_of_fails = 0
+        
+        for values in scores_per_student.values():
+            subject_scores.append(values[count])
+        print(f"Subject {count + 1}")
+        print("=" * 100)
+        print(f"Best peforming student in Subject {count + 1} is:   {students[subject_scores.index(max(subject_scores))]} scoring {max(subject_scores)}")
+        print(f"Least performing student in Subject {count + 1} is: {students[subject_scores.index(min(subject_scores))]}  scoring {min(subject_scores)}")
+        print(f"Total score is: {sum(subject_scores)}")
+        print(f"Average score is: {sum(subject_scores)/len(students):.2f}")
+      
+        for element in subject_scores:
+            if element >= cut_off_mark:
+                number_of_passes += 1
+            else:
+                number_of_fails += 1
+        passes.append(number_of_passes)
+        fails.append(number_of_fails)
+        print(f"Number of passes: {number_of_passes}")
+        print(f"Number of fails: {number_of_fails}")
+        print()
+
+def print_subject_difficulty():
+    print(f"{'=' * 100}\n{'=' * 100}")
+    print(f"The hardest subject is {subjects[fails.index(max(fails))]} with {max(fails)} failures")
+    print(f"The easiest subject is {subjects[passes.index(max(passes))]} with {max(passes)} passes")
+    for key,values in scores_per_student.items():
+        overall_highest_score = max(values[: len(students) - 1:])
+        overall_lowest_score = min(values[: len(students) - 1:])
+    print(overall_highest_score)
+    print(overall_lowest_score)
+    #print(f"The overall Highest score is {overall_highest_score} scored by {key[overall_highest_score]}")
+    #print(f"The overall Lowest score is {overall_lowest_score} scored by {key[overall_lowest_score]}")
+
+    
+    
    
 def update_merged_grades():
     for key,value in scores_per_student.items():
@@ -91,17 +138,7 @@ def display_results():
     print()
     print("=" * 100)
 
-"""def get_highest_in_subject_one():
-    subject_one_scores = []
-    for values in scores_per_student.values():
-        subject_one_scores.append(values[0])
-    subject_one_rankings = dict(zip(students, subject_one_scores))
-    subject_one_keys = list(subject_one_rankings.keys())
-    subject_one_keys.sort(reverse=True)
-    subject_one_rankings = {key: subject_one_rankings[key] for key in subject_one_keys}
-    return f"Subject 1\nHighest scoring student is:  {subject_one_rankings{key[0]}} scoring {subject_one_rankings{value[0]}}"
-"""                   
- 
+
     
 
 
@@ -124,12 +161,15 @@ for index in range(1, number_of_students + 1):
         print("Saved Successfully")
         print()
         scores_per_student[students[index-1]] = scores
-
+    os.system("clear")
+    
 update_totals()
 update_averages()
 update_scores_per_student()
 display_header()
 update_merged_grades()
+update_positions()
 display_results()
-
+display_subject_summary()
+print_subject_difficulty()
 
