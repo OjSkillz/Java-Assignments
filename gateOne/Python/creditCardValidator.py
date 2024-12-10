@@ -46,10 +46,6 @@ def get_card_validity_status(number:str):
     if result % 10 == 0:
         return "**Credit Card Validity Status:  Valid"
     return "**Credit Card Validity Status:  Invalid"
-    
-
-
-    
 
 def credit_card_validator():
     card_number =  input("Hello, Kindly Enter Card Number to Validate Your Card >>>  ")
