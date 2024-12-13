@@ -89,6 +89,23 @@ public class AcademicGradingApplication{
   
   for(int index = 0; index < averages.length; index++)
   averages[index] = (totals[index] / numberOfSubjects);
+  
+  
+  int[] positions = new int[numberOfStudents];
+  for (int index = 0; index < numberOfStudents; index++) {
+    positions[index] = index + 1;
+    }
+  int[] positionsReversed = new int[positions.length];
+  for (int index = positions.length -1, index1 = 0; index >= 0; index--, index1++) {
+  positionsReversed[index1] = positions[index];
+  }
+  float[] newTotals = new float[totals.length];
+  for(int index = 0; index < totals.length; index++) newTotals[index] = totals[index];
+  Arrays.sort(newTotals);
+  
+  System.out.println(Arrays.toString(totals));
+  System.out.println(Arrays.toString(newTotals));
+  
   System.out.println("==============================================================================================");
  System.out.print("STUDENT\t\t");
  for (int index = 0; index < numberOfSubjects; index++) 
@@ -99,8 +116,54 @@ public class AcademicGradingApplication{
   System.out.print(students[row] + "\t");
     for(int column = 0; column < numberOfSubjects; column++)
       System.out.print(scoresPerStudent[row][column] + "\t\t"); 
-      System.out.printf("%s\t%.2f%n", totals[row] , (totals[row] / numberOfSubjects));
+      System.out.printf("%.0f\t%.2f\t", totals[row] , (totals[row] / numberOfSubjects));
+    for (int index = 0; index< totals.length; index++){
+        if (totals[row] == newTotals[index]) System.out.println(positionsReversed[index]);
+      }
+    }
+
+ System.out.println("==============================================================================================");
+ System.out.println("==============================================================================================");
+ final int CUT_OFF_MARK = 40;
+ 
+ int[] fails= new int [numberOfSubjects];
+ int[] passes = new int [numberOfSubjects];
+ 
+ for(int column = 0; column < numberOfSubjects; column++) {
+ int numberOfFails = 0;
+ int numberOfPasses = 0;
+  for (int row = 0; row < numberOfStudents; row++) {
+      if (scoresPerStudent[row][column] >= CUT_OFF_MARK) numberOfPasses ++;
+      else numberOfFails ++;
+  }
+  fails[column]= numberOfFails;
+  passes[column] = numberOfPasses;
+  }
+
+ System.out.println("Scores Per Student : " + Arrays.deepToString(scoresPerStudent));
+ System.out.println(Arrays.toString(passes) + "\n" +  Arrays.toString(fails));
+ 
+ System.out.println("SUBJECT SUMMARY");
+ 
+ for (int row = 0; row < numberOfSubjects; row++){
+ System.out.println(subjects[row]);
+ 
+ for (int column = 0, count = 0; column < numberOfStudents; count++ , column++) {
+ int highestScorePerSubject = scoresPerStudent[count][row];
+ if (scoresPerStudent[column][row] > highestScorePerSubject) {
+ highestScorePerSubject = scoresPerStudent[column][row] ;
  }
-  
+  System.out.printf("Highest Scoring Student is : Student %d scoring %d%n" , row + 1 ,  highestScorePerSubject);
+  break;
+ } 
+ for (int column = 0, counter = 0; column < numberOfStudents; counter++, column++) {
+ int lowestScorePerSubject = scoresPerStudent[counter][row];
+ if (scoresPerStudent[column][row] < lowestScorePerSubject) {
+ lowestScorePerSubject = scoresPerStudent[column][row] ;
+ } 
+  System.out.printf("Lowest Scoring Student is : Student %d scoring %d%n" , row + 1 ,  lowestScorePerSubject);
+  break;
+ }
+  }
   }
   }
