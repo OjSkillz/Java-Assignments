@@ -140,30 +140,39 @@ public class AcademicGradingApplication{
   passes[column] = numberOfPasses;
   }
 
- System.out.println("Scores Per Student : " + Arrays.deepToString(scoresPerStudent));
- System.out.println(Arrays.toString(passes) + "\n" +  Arrays.toString(fails));
  
  System.out.println("SUBJECT SUMMARY");
  
- for (int row = 0; row < numberOfSubjects; row++){
+ for (int row = 0, row1 = 0; row < numberOfSubjects && row1 < numberOfStudents; row1++, row++){
  System.out.println(subjects[row]);
  
- for (int column = 0, count = 0; column < numberOfStudents; count++ , column++) {
- int highestScorePerSubject = scoresPerStudent[count][row];
- if (scoresPerStudent[column][row] > highestScorePerSubject) {
- highestScorePerSubject = scoresPerStudent[column][row] ;
+ int highestScorePerSubject = scoresPerStudent[0][row];
+ String highestStudent = students[0];
+ float total = 0;
+ for (int column = 0; column < numberOfStudents; column++) {
+ total += scoresPerStudent[column][row1];
+ if (scoresPerStudent[column][row1] > highestScorePerSubject) {
+ highestScorePerSubject = scoresPerStudent[column][row1] ;
+  highestStudent = students[column];
  }
-  System.out.printf("Highest Scoring Student is : Student %d scoring %d%n" , row + 1 ,  highestScorePerSubject);
-  break;
  } 
- for (int column = 0, counter = 0; column < numberOfStudents; counter++, column++) {
- int lowestScorePerSubject = scoresPerStudent[counter][row];
- if (scoresPerStudent[column][row] < lowestScorePerSubject) {
- lowestScorePerSubject = scoresPerStudent[column][row] ;
+  String lowestStudent = students[0];
+ int lowestScorePerSubject = scoresPerStudent[0][row];
+ for (int column = 0; column < numberOfStudents ; column++) {
+ if (scoresPerStudent[column][row1] < lowestScorePerSubject) {
+ lowestScorePerSubject = scoresPerStudent[column][row1] ;
+ lowestStudent = students[column];
  } 
-  System.out.printf("Lowest Scoring Student is : Student %d scoring %d%n" , row + 1 ,  lowestScorePerSubject);
-  break;
+ /* else lowestStudent = students[0]; */ 
+} 
+ System.out.printf("Highest Scoring Student is : %s scoring %d%n" , highestStudent ,  highestScorePerSubject);
+System.out.printf("Lowest Scoring Student is : %s scoring %d%n" , lowestStudent ,  lowestScorePerSubject);
+System.out.printf("Total Score is : %.0f%n", total);
+System.out.printf("Average Score is : %.2f%n", total/numberOfStudents);
+System.out.printf("Number of Passes : %d%n", passes[row]);
+System.out.printf("Number of Fails : %d%n", fails[row]);
+ System.out.println();
  }
-  }
+
   }
   }
