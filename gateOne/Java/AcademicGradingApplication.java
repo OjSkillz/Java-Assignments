@@ -143,12 +143,18 @@ public class AcademicGradingApplication{
  
  System.out.println("SUBJECT SUMMARY");
  
+int maxPass = passes[0];
+int maxFail = fails[0];
+String hardestSubject = subjects[0];
+String easiestSubject = subjects[0];
+
  for (int row = 0, row1 = 0; row < numberOfSubjects && row1 < numberOfStudents; row1++, row++){
  System.out.println(subjects[row]);
  
  int highestScorePerSubject = scoresPerStudent[0][row];
  String highestStudent = students[0];
  float total = 0;
+ 
  for (int column = 0; column < numberOfStudents; column++) {
  total += scoresPerStudent[column][row1];
  if (scoresPerStudent[column][row1] > highestScorePerSubject) {
@@ -171,8 +177,20 @@ System.out.printf("Total Score is : %.0f%n", total);
 System.out.printf("Average Score is : %.2f%n", total/numberOfStudents);
 System.out.printf("Number of Passes : %d%n", passes[row]);
 System.out.printf("Number of Fails : %d%n", fails[row]);
- System.out.println();
- }
+System.out.println();
 
+if (passes[row] > maxPass) {
+maxPass = passes[row];
+easiestSubject = subjects[row];
+}
+
+if (fails[row] > maxFail) {
+maxFail = fails[row];
+hardestSubject = subjects[row];
+}
+
+ }
+ System.out.printf("The easiest subject is %s with %d passes%n", easiestSubject, maxPass);
+System.out.printf("The hardest subject is %s with %d failures%n", hardestSubject, maxFail);
   }
   }
