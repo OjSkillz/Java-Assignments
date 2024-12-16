@@ -41,6 +41,15 @@ public class AcademicGradingApplication{
             Enter 3️⃣  for Miss 
             >>>  """);
     int teacherTitle = input.nextInt();
+    while (teacherTitle != 1 && teacherTitle != 2 && teacherTitle != 3 ) {
+    System.out.println("Invalid selection! Select between 1 and 3");
+    System.out.print("""
+            Enter 1️⃣  for Mr
+            Enter 2️⃣  for Mrs
+            Enter 3️⃣  for Miss 
+            >>>  """);
+    teacherTitle = input.nextInt();
+    }
     
     System.out.print("How many students do you have? >> ");
     int numberOfStudents = input.nextInt();
@@ -169,7 +178,7 @@ String easiestSubject = subjects[0];
  lowestScorePerSubject = scoresPerStudent[column][row1] ;
  lowestStudent = students[column];
  } 
- /* else lowestStudent = students[0]; */ 
+
 } 
  System.out.printf("Highest Scoring Student is : %s scoring %d%n" , highestStudent ,  highestScorePerSubject);
 System.out.printf("Lowest Scoring Student is : %s scoring %d%n" , lowestStudent ,  lowestScorePerSubject);
@@ -192,5 +201,70 @@ hardestSubject = subjects[row];
  }
  System.out.printf("The easiest subject is %s with %d passes%n", easiestSubject, maxPass);
 System.out.printf("The hardest subject is %s with %d failures%n", hardestSubject, maxFail);
+
+int overallHighestScore = scoresPerStudent[0][0] , overallLowestScore = scoresPerStudent[0][0];
+String highestScoringStudent = students[0] , lowestScoringStudent = students[0];
+String highestScoringSubject = subjects[0] , lowestScoringSubject = subjects[0];
+
+for (int row = 0; row < students.length; row++) {
+  for(int column = 0; column < subjects.length; column++) {
+    if (scoresPerStudent[row][column] > overallHighestScore) {
+    overallHighestScore = scoresPerStudent[row][column];
+    highestScoringStudent = students[row];
+    highestScoringSubject = subjects[column];
+    }
+    if (scoresPerStudent[row][column] < overallLowestScore) {
+    overallLowestScore = scoresPerStudent[row][column];
+    lowestScoringStudent = students[row];
+    lowestScoringSubject = subjects[column];
+    }
+  }
+}
+System.out.printf("The overall Highest score is scored by %s in %s scoring %d%n", highestScoringStudent, highestScoringSubject, overallHighestScore);
+
+System.out.printf("The overall Lowest score is scored by %s in %s scoring %d%n", lowestScoringStudent, lowestScoringSubject, overallLowestScore);
+ System.out.println("==============================================================================================");
+ System.out.println();
+ 
+ float maxTotal = totals[0];
+ float minTotal = totals[0];
+ float classTotal = 0;
+ String bestStudent = students[0], worstStudent = students[0];
+ for (int index = 0; index < totals.length; index++) {
+  if (totals[index] > maxTotal) {
+  maxTotal = totals[index];
+  bestStudent = students[index]; 
+  }
+  if (totals[index] < minTotal) {
+ minTotal = totals[index];
+  worstStudent = students[index]; 
+  }
+  classTotal += totals[index];
+ }
+ System.out.println("CLASS SUMMARY");
+
+System.out.println("==============================================================================================");
+  System.out.printf("Best Graduating Student is :  %s scoring %.0f%n", bestStudent, maxTotal);
+  System.out.println("==============================================================================================");
+  System.out.println();
+   System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+  System.out.printf("Worst Graduating Student is :  %s scoring %.0f%n", worstStudent, minTotal);
+   System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+  
+    System.out.println();
+    System.out.println("==============================================================================================");
+  System.out.printf("Class total score is: %.0f%nClass Average score is: %.2f%n", classTotal, classTotal / numberOfStudents);
+  System.out.println("==============================================================================================");
+  switch (teacherTitle) {
+ case 1:  System.out.printf("You have come to the end of this grading exercise, Mr %s.%n", teacherName);
+ break;
+ 
+ case 2: System.out.printf("You have come to the end of this grading exercise, Mrs %s.%n", teacherName);
+ break;
+  
+ case 3: System.out.printf("You have come to the end of this grading exercise, Miss %s.%n", teacherName);
+ break;
+  }
+  System.out.println("==============================================================================================");
   }
   }
