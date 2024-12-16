@@ -111,10 +111,6 @@ public class AcademicGradingApplication{
   float[] newTotals = new float[totals.length];
   for(int index = 0; index < totals.length; index++) newTotals[index] = totals[index];
   Arrays.sort(newTotals);
-  
-  System.out.println(Arrays.toString(totals));
-  System.out.println(Arrays.toString(newTotals));
-  
   System.out.println("==============================================================================================");
  System.out.print("STUDENT\t\t");
  for (int index = 0; index < numberOfSubjects; index++) 
