@@ -5,9 +5,9 @@ public class Bank {
   private String name = "Loci Bank";
   private String regNumber;
   private List<Account> accounts = new ArrayList<Account>();
-  Account newAccount = new Account();;
+  
    public void createAccount (String accountName, String bvn, String pin) {
-   
+    Account newAccount = new Account();
     newAccount.setName(accountName);
     newAccount.setBvn(bvn);
     newAccount.setPin(pin);
@@ -17,13 +17,15 @@ public class Bank {
    
    public void deposit(long accountNumber, double depositAmount, String newPin) {
    for (Account account : accounts) {
-      if (account.getPin().equals(newPin) && account.getAccountNumber() == accountNumber && depositAmount > 0.00 ) {
+      if (account.getPin().equals(newPin) && account.getAccountNumber() == accountNumber && depositAmount > 0.00 ) 
         account.deposit(accountNumber, depositAmount, newPin);
-      }
     }
    } 
    public void withdraw(long accountNumber, double withdrawalAmount, String newPin) {
-       newAccount.withdraw(accountNumber, withdrawalAmount, newPin);
+      for (Account account : accounts) {
+      if (account.getPin().equals(newPin) && account.getAccountNumber() == accountNumber && withdrawalAmount > 0.00 ) 
+        account.withdraw(accountNumber, withdrawalAmount, newPin);
+    }
    }
    
    public void transfer(long sourceAccountNumber, long destinationAccountNumber, double transferAmount, String pin) {
@@ -37,15 +39,28 @@ public class Bank {
       destinationBalance += transferAmount;
       }
       }
-      
     }
     public void displayAccountDetails() {
-     System.out.println("\nAccount name : " + newAccount.getName() + "\nAccount number : " + newAccount.getAccountNumber() + "\nAccount Balance : #" + newAccount.getBalance() + "\nPIN : " + newAccount.getPin() );
+      for (Account account : accounts) {
+          System.out.println("\nAccount name : " + account.getName() + "\nAccount number : " + account.getAccountNumber() +     "\nAccount Balance : #" + account.getBalance());
+           System.out.println();
+          }
+        }
+      
+        public void displayAccountDetails(String accountName) {
+    for (Account account : accounts) {
+    if (account.getName() == accountName) 
+     System.out.println("\nAccount name : " + account.getName() + "\nAccount number : " + account.getAccountNumber() +     "\nAccount Balance : #" + account.getBalance());
     }
-    public void displayAccountBalance() {
-     System.out.printf("%nDear %s, your account has been updated and your current balance is #%.2f %n", newAccount.getName() ,
-    newAccount.getBalance());
     }
+    public void displayAccountBalance(long accountNumber) {
+    for (Account account : accounts) {
+    if (account.getAccountNumber() == accountNumber) 
+     System.out.printf("%nDear %s, your account has been updated and your current balance is #%.2f %n", account.getName() ,
+    account.getBalance());
+    }
+    }
+  
     public String getName(){
     return name;
     }

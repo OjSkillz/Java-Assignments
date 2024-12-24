@@ -5,6 +5,7 @@ public class BankTest {
   public static void main(String... args) {
  
   mainMenu();
+  
   }
 public static void mainMenu() {
  Bank bank = new Bank();
@@ -35,9 +36,9 @@ case 1:
   bank.createAccount(accountName, bvn, pin);
   
   System.out.println("\nYour Account has been created successfully. Here are your account details >>");
-  bank.displayAccountDetails();
-  
-  System.out.print(""" 
+  bank.displayAccountDetails(accountName);
+
+System.out.print(""" 
              1️⃣  Return to main menu
              2️⃣  Exit
              >>>
@@ -54,18 +55,20 @@ case 1:
 
   case 2:  
    System.out.print("\nEnter your account number >>  ");
-  long accountNumber = input.nextLong();
+   long accountNumber = input.nextLong();
 
   System.out.print("\nEnter deposit amount >>   ");
-  double depositAmount = input.nextDouble();
+   double depositAmount = input.nextDouble();
   
   System.out.print("\nEnter your 4-digit pin >>  ");
   pin = input.next();
+  
   bank.deposit(accountNumber, depositAmount, pin);
-  bank.displayAccountDetails();
-  bank.displayAccountBalance();
+  bank.displayAccountBalance(accountNumber);
   break;
   }
+  
+  bank.displayAccountDetails();
 }
 
 }
