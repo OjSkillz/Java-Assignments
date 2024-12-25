@@ -1,37 +1,28 @@
 import java.security.SecureRandom;
 
 public class Account {
-  private String customerName;
-  private double customerBalance;
-  private String bvn;
-  private String pin;
-  private long accountNumber;
+      private String customerName;
+      private double customerBalance;
+      private String bvn;
+      private String pin;
+      private long accountNumber;
   
- SecureRandom randomNumber = new SecureRandom();
-  public void deposit(long accountNumber, double depositAmount, String newPin) {
-     if (!this.pin.equals(newPin) || this.accountNumber != accountNumber) System.out.println("Account number or PIN incorrect!");
-   else if(depositAmount > 0.0 && this.pin.equals(newPin) && this.accountNumber == accountNumber) {
-    customerBalance += depositAmount;
-    displayAccount() ;
+      SecureRandom randomNumber = new SecureRandom();
+ 
+    public void deposit(double depositAmount) {
+    customerBalance += depositAmount;  
     }
-  }
-  public void withdraw(long accountNumber, double withdrawalAmount, String newPin) {
-     if (!this.pin.equals(newPin) || this.accountNumber != accountNumber) System.out.println("Account number or PIN incorrect");
-    if (withdrawalAmount > customerBalance) 
-    System.out.println("\nWithdrawal amount exceeded account balance!");
-    else if (withdrawalAmount > 0.0 && this.pin.equals(newPin) && this.accountNumber == accountNumber) {
-    customerBalance -= withdrawalAmount; 
-    if (customerBalance > 0.00) displayAccount() ;
-    }
-  }
-    
-    public void transfer(long sourceAccountNumber, long destinationAccountNumber, double transferAmount, String pin) {
-      if (this.pin.equals(pin) && accountNumber == sourceAccountNumber && transferAmount > 0.00 ) {
-      customerBalance -= transferAmount;
-      
+  
+    public void withdraw(double withdrawalAmount) {
+        if (withdrawalAmount > customerBalance) {
+            System.out.println("\nWithdrawal amount exceeded account balance!");
+      return;
       }
-    }
-   public void setName(String name) {
+      else {
+          customerBalance -= withdrawalAmount; 
+      }
+  }
+  public void setName(String name) {
     customerName = name;
   }  
   public String getName() {
@@ -41,18 +32,23 @@ public class Account {
   public double getBalance() {
     return customerBalance;
   }
+  public void updateBalance(double newBalance) {
+    customerBalance = newBalance;
+  }
   public void setAccountNumber() {
   accountNumber = 20407061045L + randomNumber.nextLong(500) * 1000;
   }
   
   public long getAccountNumber() {
-
     return accountNumber;
     }
  public void setPin(String pin) {
   if(pin.length() == 4) 
     this.pin = pin;
   else System.out.println("Invalid pin!");
+ }
+ public String getPin() {
+  return pin;
  }
 public void setBvn(String bvn) {
   this.bvn = bvn;
