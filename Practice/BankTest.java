@@ -37,9 +37,6 @@ public static void mainMenu() {
 
   bank.createAccount(accountName, bvn, pin);
   
-  System.out.println("\nYour Account has been created successfully. Here are your account details >>");
-  bank.displayAccountDetails(accountName);
-
   displayReturnPrompt();
   break;
 
@@ -87,7 +84,7 @@ public static void mainMenu() {
     bank.transfer(accountNumber, destinationAccountNumber, transferAmount, pin);
     
     displayReturnPrompt();
-    break;
+  break;
   
   case 5 :  
     System.out.print("\nEnter your account number >>  ");
@@ -99,9 +96,18 @@ public static void mainMenu() {
     bank.displayAccountBalance(accountNumber, pin);
    
     displayReturnPrompt();
-    break;
-  // case 6 :
-  // break;
+  break;
+  
+  case 6 : 
+    System.out.print("\nEnter your account number >>  ");
+    accountNumber = input.nextLong();
+    
+    System.out.print("\nEnter your 4-digit pin >>  ");
+    pin = input.next();
+    
+    bank.closeAccount(accountNumber, pin);
+    displayReturnPrompt();
+  break;
   
   case 7: break;
   
