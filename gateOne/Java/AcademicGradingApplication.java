@@ -104,6 +104,7 @@ public class AcademicGradingApplication{
   for (int index = 0; index < numberOfStudents; index++) {
     positions[index] = index + 1;
     }
+      
   int[] positionsReversed = new int[positions.length];
   for (int index = positions.length -1, index1 = 0; index >= 0; index--, index1++) {
   positionsReversed[index1] = positions[index];
@@ -111,12 +112,14 @@ public class AcademicGradingApplication{
   float[] newTotals = new float[totals.length];
   for(int index = 0; index < totals.length; index++) newTotals[index] = totals[index];
   Arrays.sort(newTotals);
-  System.out.println("==============================================================================================");
- System.out.print("STUDENT\t\t");
- for (int index = 0; index < numberOfSubjects; index++) 
+  
+  printBreaker();
+  System.out.print("STUDENT\t\t");
+  for (int index = 0; index < numberOfSubjects; index++) 
   System.out.print(subjects[index] + "\t");
   System.out.println("TOT\tAVE\tPOS");
-  System.out.println("==============================================================================================");
+  printBreaker();
+    
   for (int row = 0; row < numberOfStudents; row++){
   System.out.print(students[row] + "\t");
     for(int column = 0; column < numberOfSubjects; column++)
@@ -127,8 +130,8 @@ public class AcademicGradingApplication{
       }
     }
 
- System.out.println("==============================================================================================");
- System.out.println("==============================================================================================");
+   printBreaker();
+   printBreaker();
  final int CUT_OFF_MARK = 40;
  
  int[] fails= new int [numberOfSubjects];
@@ -219,9 +222,9 @@ for (int row = 0; row < students.length; row++) {
 System.out.printf("The overall Highest score is scored by %s in %s scoring %d%n", highestScoringStudent, highestScoringSubject, overallHighestScore);
 
 System.out.printf("The overall Lowest score is scored by %s in %s scoring %d%n", lowestScoringStudent, lowestScoringSubject, overallLowestScore);
- System.out.println("==============================================================================================");
- System.out.println();
- 
+
+  printBreaker();
+  
  float maxTotal = totals[0];
  float minTotal = totals[0];
  float classTotal = 0;
@@ -239,28 +242,38 @@ System.out.printf("The overall Lowest score is scored by %s in %s scoring %d%n",
  }
  System.out.println("CLASS SUMMARY");
 
-System.out.println("==============================================================================================");
+  printBreaker();
   System.out.printf("Best Graduating Student is :  %s scoring %.0f%n", bestStudent, maxTotal);
-  System.out.println("==============================================================================================");
+  printBreaker();
+    
   System.out.println();
-   System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+  System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
   System.out.printf("Worst Graduating Student is :  %s scoring %.0f%n", worstStudent, minTotal);
-   System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+  System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
   
-    System.out.println();
-    System.out.println("==============================================================================================");
+  System.out.println();
+    
+  printBreaker();
+      
   System.out.printf("Class total score is: %.0f%nClass Average score is: %.2f%n", classTotal, classTotal / numberOfStudents);
-  System.out.println("==============================================================================================");
+    
+  printBreaker();
+    
   switch (teacherTitle) {
- case 1:  System.out.printf("You have come to the end of this grading exercise, Mr %s.%n", teacherName);
- break;
+  case 1:  System.out.printf("You have come to the end of this grading exercise, Mr %s.%n", teacherName);
+  break;
  
- case 2: System.out.printf("You have come to the end of this grading exercise, Mrs %s.%n", teacherName);
- break;
+  case 2: System.out.printf("You have come to the end of this grading exercise, Mrs %s.%n", teacherName);
+  break;
   
  case 3: System.out.printf("You have come to the end of this grading exercise, Miss %s.%n", teacherName);
  break;
   }
-  System.out.println("==============================================================================================");
+  printBreaker();
   }
-  }
+  public static void printBreaker() {
+    for (int count = 0; count < 100; count++) 
+      System.out.print("=");
+    System.out.println();
+ }
+}
