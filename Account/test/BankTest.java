@@ -164,7 +164,6 @@ public class BankTest {
         bank.createNewAccount("Jess Glyne", "4738454999343", "9090");
 
         long sourceAccountNumber = bank.getAccountNumber("Jess Glyne", "9090");
-        long destinationAccountNumber = bank.getAccountNumber("Ali Munguno", "5622");
 
         bank.deposit(sourceAccountNumber, 55000);
         assertThrows(IllegalArgumentException.class, ()-> bank.transfer(sourceAccountNumber, 45588348829947L, 30000, "9090"));
