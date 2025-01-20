@@ -8,6 +8,7 @@ public class CompoundInterest {
   private double monthlyContribution;
   private int frequency = 1;
   private double futureValue;
+  private double interestRange;
   final double PERCENTAGE = 1.0 / 100;  
   final int MONTHS = 12;
   final int QUARTERS = 4;
@@ -77,6 +78,10 @@ public class CompoundInterest {
     }
   }
   
+  public void setInterestRange(double interestRange) {
+    this.interestRange = interestRange;
+  }
+  
   public double getPrincipal() {
     return principal;
   }
@@ -97,14 +102,33 @@ public class CompoundInterest {
   return frequency;
   }
   
-  public void getFutureValue() {
+  public double getInterestRange() {
+    return interestRange;
+  }
+  
+  public double getFutureValue() {
     double ratePerFrequency = (getInterestRate() * PERCENTAGE) / getFrequency() ; 
     double frequencyByDuration = getFrequency() * getDuration() ;
     double recurringFactor = Math.pow( ( 1 + ratePerFrequency ) , frequencyByDuration ) ;
     futureValue = (getPrincipal() * recurringFactor ) +  ( getMonthlyContribution() * ( (recurringFactor - 1)  /  ratePerFrequency ) ) ;
-
-    System.out.println("\n        The Results Are In\nIn " + getDuration() + " years, you will have #" + String.format("%,.2f", 
-    futureValue));
-       
+    return futureValue;
   }
+  
+  public double getFutureValueAboveRange(double interestRange) {
+    double ratePerFrequency = ( (getInterestRate() + interestRange) * PERCENTAGE) / getFrequency() ; 
+    double frequencyByDuration = getFrequency() * getDuration() ;
+    double recurringFactor = Math.pow( ( 1 + ratePerFrequency ) , frequencyByDuration ) ;
+    futureValue = (getPrincipal() * recurringFactor ) +  ( getMonthlyContribution() * ( (recurringFactor - 1)  /  ratePerFrequency ) ) ;
+    return futureValue;
+  }
+  
+    public double getFutureValueBelowRange(double interestRange) {
+    double ratePerFrequency = ( (getInterestRate() - interestRange) * PERCENTAGE) / getFrequency() ; 
+    double frequencyByDuration = getFrequency() * getDuration() ;
+    double recurringFactor = Math.pow( ( 1 + ratePerFrequency ) , frequencyByDuration ) ;
+    futureValue = (getPrincipal() * recurringFactor ) +  ( getMonthlyContribution() * ( (recurringFactor - 1)  /  ratePerFrequency ) ) ;
+    return futureValue;
+  }
+  
+ 
 }
