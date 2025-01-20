@@ -3,10 +3,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.math.BigInteger;
 import java.util.Arrays;
+import java.math.BigDecimal;
 
 
 public class HugeIntegerTest {
-  public static void main(String... args) {
+  public static void main(String[] args) {
    
     System.out.println("\t\t\tTESTING HUGE INTEGERS 💯\nA Huge Integer In This Context Is One With As Many As 40 Digits And " +
     "Not Less Than 20 Digits");
@@ -55,21 +56,38 @@ public static void mainMenu() {
       
       case 2: 
       
-      viewAllEntries();
-      addOrMultiply("addition");
+        List<Integer> options = new ArrayList<>();
+        List<BigInteger> addOptions = new ArrayList<>();
+        
+        viewAllEntries();
+        
+        int endSelection = 0;
+        System.out.println("Enter the numbers corresponding to the huge integer you want to select for addition followed by ↩️" +
+        "\nor \"0\" to stop selecting");
+        System.out.print(">>> ");
+        int choice = input.nextInt();
+        
+        while (choice != endSelection) {
+        options.add(choice); 
+        System.out.print(">>> ");
+        choice = input.nextInt();
+        } 
       
-      HugeInteger object = new HugeInteger();
-      BigInteger result = object.add(addOrMultiply("addition"));
-        System.out.println("The sum of all selected huge integers = " + result);
+        for (Integer option: options) {
+          BigInteger integer = new BigInteger(hugeIntegers.get(option - 1));
+        addOptions.add(integer);
+        }
+        HugeInteger object = new HugeInteger();
+        
+        System.out.println("The sum of all selected huge integers = " + object.add(addOptions));
         returnMenu();
       break; 
       
       case 3 : 
         viewAllEntries();
-       List<Integer>  options = new ArrayList<>();
-        List<BigInteger> addOptions = new ArrayList<BigInteger>();
-        
- 
+         options = new ArrayList<>();
+        addOptions = new ArrayList<BigInteger>();
+
         System.out.println("Enter the numbers corresponding to the huge integer you want to select for subtraction in the order" +
         " (a - b) ");
         System.out.print("a >>> ");
@@ -91,7 +109,55 @@ public static void mainMenu() {
       
       case 4 : 
        viewAllEntries();
-       break;
+       options = new ArrayList<>();
+       addOptions = new ArrayList<BigInteger>();
+       
+       System.out.println("Enter the numbers corresponding to the huge integer you want to select for multiplication followed" +
+       " by ↩️\nor \"0\" to stop selecting");
+         endSelection = 0;
+        System.out.print(">>> ");
+         choice = input.nextInt();
+        
+        while (choice != endSelection) {
+        options.add(choice); 
+        System.out.print(">>> ");
+        choice = input.nextInt();
+        } 
+        
+        for (Integer option: options) {
+          BigInteger integer = new BigInteger(hugeIntegers.get(option - 1));
+        addOptions.add(integer);
+        }
+         object = new HugeInteger();
+        
+        System.out.println("The product of all selected huge integers = " + object.multiply(addOptions));
+        returnMenu();
+      break; 
+    
+    case 5: 
+        viewAllEntries();
+         options = new ArrayList<>();
+        List<BigDecimal> divideOptions = new ArrayList<BigDecimal>();
+
+        System.out.println("Enter the numbers corresponding to the huge integer you want to select for division in the order" +
+        " (a / b) ");
+        System.out.print("a >>> ");
+         a = input.nextInt();
+        options.add(a);
+        
+        System.out.print("b >>> ");
+         b = input.nextInt();
+        options.add(b);
+        for (Integer option: options) {
+        BigDecimal decimal = new BigDecimal(hugeIntegers.get(option - 1));
+        divideOptions.add(decimal);
+        }
+        
+        object = new HugeInteger();
+        System.out.println(hugeIntegers.get(a -1) + " / " +  hugeIntegers.get(b -1) + " = " + object.divide(divideOptions));
+        returnMenu();
+      break;
+        
     }
   }
   
@@ -122,29 +188,7 @@ public static void mainMenu() {
         System.out.println();
   }
   
-  public static List<BigInteger> addOrMultiply(String operation) {
-        
-        List<Integer> options = new ArrayList<>();
-        List<BigInteger> addOptions = new ArrayList<>();
-        
-        int endSelection = 0;
-        System.out.println("Enter the numbers corresponding to the huge integer you want to select for addition followed by ↩️" +
-        "\nor \"0\" to stop selecting");
-        System.out.print(">>> ");
-        int choice = input.nextInt();
-        
-        while (choice != endSelection) {
-        options.add(choice); 
-        System.out.print(">>> ");
-        choice = input.nextInt();
-        } 
-      
-        for (Integer option: options) {
-          BigInteger integer = new BigInteger(hugeIntegers.get(option - 1));
-        addOptions.add(integer);
-        }
-    return addOptions;
-  } 
+
 
 }
 

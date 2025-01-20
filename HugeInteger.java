@@ -3,6 +3,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.lang.String;
 import java.math.BigInteger;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class HugeInteger {
   private int sum = 0;
@@ -44,17 +46,21 @@ public class HugeInteger {
   BigInteger integer2 = objects.get(1);
   return integer1.subtract(integer2) ;
   }
-  //}
-/*  public BigInteger multiply(List<Integer>... objects) {
+
+  public BigInteger multiply(List<BigInteger> objects) {
+    BigInteger product = new BigInteger("1");
+    for (BigInteger object : objects) 
+      product = product.multiply(object);
   
-    return ;
+    return product;
   }
   
-  public BigInteger divide(List<Integer>... objects) {
-  
-    return;
+  public BigDecimal divide(List<BigDecimal> objects) {
+  BigDecimal integer1 = objects.get(0);
+  BigDecimal integer2 = objects.get(1);
+  return integer1.divide(integer2, 3, RoundingMode.HALF_UP) ;
   }
-  
+  /*
   public BigInteger remainder(List<Integer>... objects) {
   
     return ;
