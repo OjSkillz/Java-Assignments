@@ -82,6 +82,20 @@ public class MyArrayListTest {
         assertEquals("Loveth", strings.get(3));
         assertEquals("Bimbo", strings.get(6));
     }
+
+    @Test
+    public void replaceElementAtSpecifiedIndex_returnsElementAtIndex() {
+        strings.add("John");
+        strings.add("Kunle");
+        strings.add("Jemima");
+        strings.add("Jacinta");
+        strings.add("Wilson");
+
+        assertEquals("Jemima", strings.set(2, "Edwin"));
+    }
+
+    @Test
+    public void
 }
 
 
