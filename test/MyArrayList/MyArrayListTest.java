@@ -3,8 +3,7 @@ package MyArrayList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class MyArrayListTest {
 
@@ -28,7 +27,7 @@ public class MyArrayListTest {
         strings.add("John");
         strings.add("Kunle");
 
-        assertEquals(2, strings.getSize());
+        assertEquals(2, strings.size());
     }
 
     @Test
@@ -36,10 +35,10 @@ public class MyArrayListTest {
         strings.add("John");
         strings.add("Kunle");
 
-        assertEquals(2, strings.getSize());
+        assertEquals(2, strings.size());
 
         strings.remove("Kunle");
-        assertEquals(1, strings.getSize());
+        assertEquals(1, strings.size());
     }
 
     @Test
@@ -67,7 +66,21 @@ public class MyArrayListTest {
         strings.add("Jacinta");
         strings.add("Wilson");
         strings.add("Bimbo");
-        assertEquals(6, strings.getSize());
+        assertEquals(6, strings.size());
+    }
+
+    @Test
+    public void addElementAtSpecificIndex_checkElementAtIndex() {
+        strings.add("John");
+        strings.add("Kunle");
+        strings.add("Jemima");
+        strings.add("Jacinta");
+        strings.add("Wilson");
+        strings.add("Bimbo");
+        strings.add(3, "Loveth");
+
+        assertEquals("Loveth", strings.get(3));
+        assertEquals("Bimbo", strings.get(6));
     }
 }
 
