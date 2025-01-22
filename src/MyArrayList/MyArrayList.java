@@ -2,7 +2,18 @@ package MyArrayList;
 
 public class MyArrayList {
     private int size = 0;
-    private String[] strings = new String[4];
+    private int initialCapacity;
+    private String[] strings;
+
+    public MyArrayList() {
+        initialCapacity = 10;
+        strings = new String[initialCapacity];
+    }
+
+    public MyArrayList(int initialCapacity) {
+        this.initialCapacity = initialCapacity;
+        strings = new String[initialCapacity];
+    }
 
     public boolean isEmpty() {
         return size == 0;
@@ -28,10 +39,7 @@ public class MyArrayList {
     }
 
     private boolean isFull() {
-        if (size == strings.length) {
-            return true;
-        }
-        return false;
+        return size == strings.length;
     }
 
 
