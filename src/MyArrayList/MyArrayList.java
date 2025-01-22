@@ -83,4 +83,9 @@ public class MyArrayList {
     }
 
 
+    public String set(int index, String element) {
+        String oldElement = strings[index];
+        strings[index] = element;
+        return oldElement;
+    }
 }
