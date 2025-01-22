@@ -29,6 +29,20 @@ public class MyArrayList {
         size++;
     }
 
+    public void add(int index, String element) {
+        if (isFull()) expandCapacity();
+        String[] temp = new String[size + 1];
+
+        if (index >= 0) System.arraycopy(strings, 0, temp, 0, index);
+        temp[index] = element;
+        System.arraycopy(strings, index , temp, index + 1, temp.length - (index + 1));
+
+        strings = temp;
+        size++;
+
+
+    }
+
     private void expandCapacity() {
         int newCapacity = strings.length * 2;
         String[] newStrings = new String[newCapacity];
@@ -61,10 +75,12 @@ public class MyArrayList {
     }
 
     public String get(int index) {
-        String element = "";
+        String element = null;
         for (int i = 0; i < size; i++) {
-            if (strings[i].equals(strings[index])) element = strings[i];
+            if (strings[index].equals(strings[i])) element = strings[i];
         }
         return element;
     }
+
+
 }
