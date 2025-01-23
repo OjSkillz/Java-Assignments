@@ -1,7 +1,6 @@
 package MyArrayList;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -117,7 +116,7 @@ public void listCapacity_canExpandTest() {
         strings.add("John");
         strings.add("Kunle");
         strings.add("Jemima");
-        assertTrue(strings.contain("Jemima"));
+        assertTrue(strings.contains("Jemima"));
     }
 
     @Test
@@ -129,7 +128,7 @@ public void listCapacity_canExpandTest() {
         strings.add("Jacinta");
         strings.add("Wilson");
 
-        assertFalse(strings.contain("Bob"));
+        assertFalse(strings.contains("Bob"));
     }
 
     @Test

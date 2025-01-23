@@ -92,7 +92,7 @@ public class MyArrayList {
         return oldElement;
     }
 
-    public boolean contain(String element) {
+    public boolean contains(String element) {
         for (int i = 0; i < size; i++) {
             if (strings[i].equals(element)) return true;
         }
