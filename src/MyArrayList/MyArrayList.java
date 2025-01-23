@@ -2,7 +2,8 @@ package MyArrayList;
 
 public class MyArrayList {
     private int size = 0;
-    private int initialCapacity;
+    private final int initialCapacity;
+    private int newCapacity;
     private String[] strings;
 
     public MyArrayList() {
@@ -43,13 +44,15 @@ public class MyArrayList {
 
     }
 
-    private void expandCapacity() {
-        int newCapacity = strings.length * 2;
+    protected void expandCapacity() {
+        newCapacity = strings.length * 2;
         String[] newStrings = new String[newCapacity];
-        for (int i = 0; i < strings.length; i++) {
-            newStrings[i] = strings[i];
-        }
+        System.arraycopy(strings, 0, newStrings, 0, strings.length);
         strings = newStrings;
+    }
+
+    public int getNewCapacity() {
+        return newCapacity;
     }
 
     private boolean isFull() {
@@ -58,7 +61,7 @@ public class MyArrayList {
 
 
     public void remove(String element) {
-        int elementIndex = getElementIndex(element);
+        int elementIndex = indexOf(element);
         for (int index = elementIndex; index < size - 1; index++) {
             strings[index] = strings[index + 1];
         }
@@ -66,7 +69,7 @@ public class MyArrayList {
         size--;
     }
 
-    private int getElementIndex(String element) {
+    public int indexOf(String element) {
         int indexOfElement = -1;
         for (int i = 0; i < size; i++) {
             if (strings[i].equals(element)) indexOfElement = i;
@@ -88,4 +91,18 @@ public class MyArrayList {
         strings[index] = element;
         return oldElement;
     }
+
+    public boolean contain(String element) {
+        for (int i = 0; i < size; i++) {
+            if (strings[i].equals(element)) return true;
+        }
+        return false;
+    }
+
+    public void clear() {
+        String[] temp = new String[size];
+        strings = temp;
+        size = 0;
+    }
+
 }
