@@ -1,0 +1,10 @@
+Pseudocode for finding the largest element in a list
+
+Create an array and initialize it with integer elements
+
+Set the element at the first index of the array to be the largest
+
+If the element in the next index is larger than the current largest, 
+	that element becomes the current largest
+	Repeat this until the end of the array
+Wrap the set of actions in lines 3 - 9 in a method and return the largest element in the list

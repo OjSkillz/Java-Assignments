@@ -1,0 +1,24 @@
+Pseudocode for Validating User Input for 10 student results
+
+Initialize passes to zero
+initialize failures to zero
+Initialize student counter to one
+	Prompt user to enter the next exam result as 1 for pass and 2 for fail 
+	Input the next exam result
+If the value entered by the user is other than 1 or 2, keep looping until the user complies
+Else, go on to evaluating the value input
+
+	if the student passes, 
+		add one to passes
+	else 
+		add one to failures
+	Increment student counter by 1 step
+	
+	While student counter is less than or equal to 10
+
+Display the number of passes
+Display the number of failures
+
+If more than  eight students passed
+	Display "Bonus to instructor!"
+	

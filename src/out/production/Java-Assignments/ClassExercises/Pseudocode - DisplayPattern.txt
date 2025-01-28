@@ -1,0 +1,4 @@
+STAGE 1:
+
+1. Generate pattern with the characters * and =
+2. Display pattern

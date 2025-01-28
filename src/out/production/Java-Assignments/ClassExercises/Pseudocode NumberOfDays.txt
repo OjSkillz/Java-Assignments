@@ -1,0 +1,8 @@
+Pseudocode NumberOfDays
+
+1. Prompt user to input a month number
+2. Collect and store as "monthNumber"
+3. Prompt user to input a year
+4. Collect and store as "year"
+5. Display the number of days in the month of that year
+

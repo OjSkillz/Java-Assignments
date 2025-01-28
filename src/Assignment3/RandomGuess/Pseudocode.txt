@@ -1,0 +1,9 @@
+Guessing a random number
+
+Generate a random number in the program
+Prompt the user to enter a guess number
+Read in the user's guess while checking if the user's guess is not the random number
+Compare the user's guess with the random number generated
+	if the user's guess is higher or lower than the random number, ask the user to go
+	again
+	otherwise, let the user know they have guessed right.

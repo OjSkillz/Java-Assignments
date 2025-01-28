@@ -1,0 +1,13 @@
+Pseudocode for Palindromes
+
+	Prompt user to input a five-digit integer
+	Input the five-digit integer
+	
+	If user's input is not five-digits long
+		Display an error message and allow the user to enter a new value
+	If the first two and the last two digits are same
+		Print "Integer is a palindrome"
+	Else 
+		Print "Integer is not a palindrome"
+		
+

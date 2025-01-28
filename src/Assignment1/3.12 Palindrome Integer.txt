@@ -1,0 +1,18 @@
+3.12 Palindrome Integer
+
+Stage 1.
+1. Prompt and collect a 3-digit integer
+2. Determine whether or not it is a palindrome integer 
+3. Display result
+
+Stage 2.
+1. Prompt user to input a 3-digit integer
+2. Collect input
+3. Store as "number"
+4. Separate first digit from rest of "number" by applying / operator (number / 100)
+5. Store result as "firstDigit"
+6. Separate the third digit from rest of "number" by applying the % operator (number % 10) 
+7. Store result as "thirdDigit" 
+8. Compare "firstDigit" with "thirdDigit"
+9. If "firstDigit" = "thirdDigit", print "number" is a palindrome integer 
+10. Else, print "number" is not a palindrome integer

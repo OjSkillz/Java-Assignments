@@ -1,0 +1,17 @@
+Pseudocode IntegerTruthChecker
+
+STAGE 1
+
+1. Prompt and collect three integers from user
+2. Check if two or more of them have the same rightmost digit.
+3. Return true if the condition is met
+
+STAGE 2
+
+1. Prompt user to input three integers 
+
+2. Collect and store them 
+
+3. Check if two or more of them have the same rightmost digit
+
+4. Return true by displaying True.

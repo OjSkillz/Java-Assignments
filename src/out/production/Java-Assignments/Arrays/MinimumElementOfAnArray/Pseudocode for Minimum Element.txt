@@ -1,0 +1,8 @@
+Pseudocode for finding Minimum Element of an Array
+Create an array "newArray" of integer type and width of 5 elements
+Set a variable "minimumValue" to hold the value of the first element array "newArray"
+Prompt user to enter an array of integer elements
+if any element entered is lesser than "minimumValue"
+	that element becomes "minimumValue"
+
+Display the minimum element of the array

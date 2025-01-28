@@ -1,0 +1,20 @@
+STAGE 1
+1.Prompt and collect weight in pounds
+2.Prompt and collect height in inches
+3.Convert weight in pounds to weight in kilograms
+4.Convert height in inches to height in meters
+5.Calculate BMI
+6.Display result
+
+STAGE 2 
+1. Prompt user to enter weight in pounds
+2. Collect input and store as "poundsWeight"
+3. Convert poundsWeight to kilograms using (poundsWeight * 0.45359237)
+4. Store result as "kiloWeight"
+5. Prompt user to enter height in inches
+6. Collect input and store as "inchesHeight"
+7. Convert inchesHeight to meters using (inchesHeight * 0.0254)
+8. Store result as "metersHeight"
+9. Calculate Body Mass Index using (kiloWeight) / (metersHeight)2
+10. Store result as BMI
+11. Display result

@@ -1,0 +1,10 @@
+Pseudocode for Ice Cream Menu
+
+Display welcome  message
+Prompt user to select their preferred ice cream dessert
+Read in user's choice
+
+Prompt user to select their preferred flavour
+Read in user's choice
+
+Print a message  indicating the selected dessert and flavour

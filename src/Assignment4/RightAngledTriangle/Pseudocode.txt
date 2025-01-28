@@ -1,0 +1,10 @@
+4.30 Pseudocode for Drawing a Right Angled Triangle from user input
+
+	Prompt user to enter the length of the base of a triangle betweeen 1 and 10	
+ 	Input the length of the base of the triangle 
+ 	
+ 	While the length entered is within the range specified
+ 		proceed to draw a right-angled triangle composed of asterisks with the
+ 		base length input by the user
+ 	Otherwise, abort the program
+ 	

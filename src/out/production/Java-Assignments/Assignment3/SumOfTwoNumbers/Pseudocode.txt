@@ -1,0 +1,13 @@
+Sum Of Two Numbers with do-while loop
+
+Pseudocode:
+
+1. Declare a variable response to store user response later on in the program
+
+2. Prompt user to input two numbers
+3. Calculate the sum of both numbers
+4. Display the result
+5. Prompt user to indicate whether or not they wish to repeat the operation
+6. Repeat the operation from 2. above whie user response is Yes, irrespective of case,
+	otherwise, terminate the program
+	

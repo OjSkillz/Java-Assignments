@@ -1,0 +1,9 @@
+Pseudocode for Sum Of Even Numbers
+
+Prompt user to input two integers 
+	If the second integer is not greater than the first
+		Print error message and prompt user to enter another second integer
+	Otherwise, proceed to find the sum of all the even numbers between both integers
+		even numbers are numbers completely divisible by 2 
+	Print the sum 
+	

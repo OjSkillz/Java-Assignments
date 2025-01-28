@@ -1,0 +1,8 @@
+Pseudocode for Average of Array Values
+
+Set a variable to hold average values to 0
+Set a variabe to hold sum to 0
+Declare and initialize an array variable
+Find the average of the values of the array by adding each of them to the variable holding sum and dividing the total sum by the number of values
+
+Print the average of the values of the array

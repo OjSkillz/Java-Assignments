@@ -1,0 +1,13 @@
+
+Pseudocode for Life Stages
+
+Prompt the user to enter their age
+Collect the input and store as "userAge"
+	If userAge is between 0 and 12
+		Print "child"
+	else if userAge is between 13 and 17
+		Print "teen"
+	else if userAge is between 18 and 64
+		Print "adult"
+	else 
+		Print "senior"

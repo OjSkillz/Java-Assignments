@@ -1,0 +1,20 @@
+BMI CALCULATOR
+
+STAGE 1:  
+1. Prompt and Collect User's Weight in Pounds
+2. Prompt and Collect User's height in Inches
+3. Calculate User's BMI
+4. Display result as well as BMI Category data.
+
+STAGE 2:
+1. Prompt user to input weight in pounds
+2. Collect input
+3. Store as "weight"
+4. Prompt user to input height in inches
+5. Collect input
+6. Store as "height"
+7. Calculate user's Body Max Index (BMI) using (weight x 703) / (height x height)
+8. Collect result
+9. Store as "bmi"
+10. Display result
+11. Display BMI Category using data from NIH official website.

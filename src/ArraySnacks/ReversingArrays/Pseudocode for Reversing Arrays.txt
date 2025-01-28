@@ -1,0 +1,7 @@
+Pseudocode for reversing a list
+
+Create an array and initialize it with integer elements
+
+Reverse the array by switching the elements from the last index with the elements from the first index until there's no more possible switches
+
+Print the reversed array

@@ -1,0 +1,7 @@
+6. FLoating Decimal Checker
+
+Pseudocode:
+
+1. Read in two floating point numbers from user
+2. Test whether they're same up to three decimal places 
+3. Print result of test

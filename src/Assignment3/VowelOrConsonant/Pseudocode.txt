@@ -1,0 +1,12 @@
+8. Vowel or Consonant 
+
+Pseudocode 
+1. Read in a single character from the alphabet from user
+2. Check if the user input is a letter (between a and z or A and Z) and is not more than 
+   one character: 
+   	if not, prompt user to enter a valid input
+   	if yes;
+   		check if it is a vowel (if it falls within a, e, i, o and u) 
+   			if yes, print "Input Letter is a vowel"
+   			else, print "Input Letter is a consonant"
+   

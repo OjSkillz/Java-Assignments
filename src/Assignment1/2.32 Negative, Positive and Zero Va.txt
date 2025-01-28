@@ -1,0 +1,16 @@
+2.32 Negative, Positive and Zero Values
+
+STAGE 1: 
+1. Prompt and collect five numbers
+2. Determine and display the number of negative numbers input, the number of positive numbers input and the number of zeros input.
+
+STAGE 2:
+1. Prompt user to input 5 whole integers
+2. Collect all inputs
+3. Store all inputs
+4. Determine the number of negative numbers input
+5. Store result
+6. Determine the number of positive numbers input
+7. Store result
+8. Determine the number of zeros input
+9. Print all results

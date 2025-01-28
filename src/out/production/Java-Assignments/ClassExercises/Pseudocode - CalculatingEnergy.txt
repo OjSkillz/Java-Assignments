@@ -1,0 +1,21 @@
+STAGE 1
+
+1. Prompt and collect the amount of water in kilograms
+2. Prompt and collect the initial and final temperatures of the water
+3. Calculate the energy needed inn Joules
+4. Display the energy needed as the result.
+
+STAGE 2
+
+1. Prompt user to input the amount of water in kilograms
+2. Collect input
+3. Store as "amountOfWaterInKg"
+4. Prompt user to input the initial temperature of the water in degrees celcius
+4. Collect input
+5. Store as "initialTemperature"
+6. Prompt user to input final temperature of the water in degrees celcius
+7. Collect input
+8. Store as "finalTemperature"
+9. Calculate the energy needed using the formula: amountOfWaterInKg * (finalTemperature - initialTemperature ) * 4184 
+10. Store the result of the calculation as "energyNeeded"
+11. Display the result

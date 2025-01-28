@@ -1,0 +1,5 @@
+STAGE 1
+
+1. Draw pattern of face using characters ", +, o, ^, ', _, [ and ]
+
+2. Display pattern of face

@@ -1,0 +1,12 @@
+9. Check Whether a year is a leap year
+
+Pseudocode:
+
+1. Read in a year from the user
+2. Store as "year"
+3. Check whether the year is a leap year using the following basis:
+	A year is a leap year if it is divisible by 4
+3. If the year is divisible by 4
+	Print "year" is a leap year
+   else 
+   	Print "year" is not a leap year

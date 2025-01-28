@@ -1,0 +1,17 @@
+Pseudocode PositiveOrNegativeChecker
+
+STAGE 1:
+
+1. Prompt and collect a number from the user
+2. Check whether the number is positive or negative
+3. Print result
+
+STAGE 2
+
+1. Prompt user to input a number 
+2. Collect and store as "usersNumber"
+3. Check whether usersNumber is positive or negative:
+	a positive number is greater than 0 
+	a positive number is lesser than 0
+4. Display the result
+	

@@ -1,0 +1,12 @@
+Pseudocode for checking element occurrence
+
+Create an array and initialize it with integer elements
+
+set an element to check if it occurs in the array 
+
+check if the element matches any of the elements in the array
+
+If there is a match
+	print "True"
+Else
+	print "False"

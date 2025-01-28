@@ -1,0 +1,12 @@
+Pseudocode for Sum of Digits 
+
+set initial sum to 0
+declare a variable "integer" to be  used later on to store the value of the user's input
+Prompt the user to enter a positive integer
+Read in the user's input
+	If the integer supplied is lesser than or equal to 0
+		repeat the prompt
+
+Extract each digit of the integer and add it to the  sum until there is no digit left
+Print the sum of all the digits
+	

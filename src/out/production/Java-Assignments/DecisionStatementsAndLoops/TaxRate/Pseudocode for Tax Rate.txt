@@ -1,0 +1,15 @@
+
+Pseudocode  for Tax Rate Indicator
+
+Prompt user to enter their annual income
+Collect and store input as annualIncome 
+	If annualIncome is less than or equal to  $9875
+		Print "0 - $9,875: 10%"
+	Else if annualIncome is between $9876 and $40,125
+ 		Print " $9,876 - $40,125: 12%"
+ 	Else if annualIncome is between $40,126 and $85, 525 
+		Print  "$40,126 - $85,525: 22%"
+	Else 
+		Print "$85,526 and above: 24%" 
+
+

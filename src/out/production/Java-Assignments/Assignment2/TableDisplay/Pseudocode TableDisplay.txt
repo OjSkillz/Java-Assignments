@@ -1,0 +1,11 @@
+Pseudocode: Display A Table
+
+Stage 1:
+1. set counter to begin at 1
+2. initialize a at 0
+3. initialize b at 1
+4. print table header using the horizontal tab escape sequence to specify column width
+5. while counter is less than 6 and incrementing counter by 1,
+	increment a by 1
+	increment b by 1
+6. Print results of a, b and a raised to the power of b under the corresponding headers using the tab escape sequence.

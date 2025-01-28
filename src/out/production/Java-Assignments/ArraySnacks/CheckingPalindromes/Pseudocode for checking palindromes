@@ -1,0 +1,8 @@
+Pseuocode for checking palindromes
+
+Write a method that takes in a string as a parameter 
+ if the characters preceding the middle character match the characters after the middle character
+	 print "String is a palindrome"
+Else 
+	print "String is not a palindrome"
+

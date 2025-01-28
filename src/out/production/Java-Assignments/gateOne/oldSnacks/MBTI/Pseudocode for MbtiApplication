@@ -1,0 +1,15 @@
+Pseudocode for MBTI Application
+
+Display welcome message and prompt user for their name
+Collect and store user's name for reference purposes
+Prompt user to select one option out of two for a test of 20 personality traits 
+Collect responses
+After each batch of 5 tests, display a review of the user's selection
+Use responses to evaluate user's personality 
+Display results of test
+Prompt user if they want to take the test again.
+	While the user's response is yes
+		repeat the test all over
+	Else terminate the application with an appropriate message
+	
+

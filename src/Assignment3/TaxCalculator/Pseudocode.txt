@@ -1,0 +1,7 @@
+4.20 Calculating Tax
+
+Read in the names and earnings per year from three citizens
+Determine the total tax depending on the earnings:
+	if earnings <= 30,000 USD, compute tax with 15% tax rate
+	if earnings >30,000 USD, compute tax with 20% rate
+Display the results for each of the citizens 

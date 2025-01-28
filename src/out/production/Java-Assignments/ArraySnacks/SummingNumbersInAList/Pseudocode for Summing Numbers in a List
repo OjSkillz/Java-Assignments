@@ -1,0 +1,22 @@
+
+Create an array and initialize it with integer elements 
+
+Compute the sum of the elements of the array using a for loop :
+	Initialize a variable "sum" to hold the sum of the elements of the array
+	For each iteration equalling the number of elements in the array
+		update sum by adding each element of the array
+
+Compute the sum of the elements of the array using a while loop :
+	Initialize a variable "sum" to hold the sum of the elements of the array
+	Initialize a counter of elements in the array
+	While the counter is less than the length of the array
+		update sum by adding each element of the array
+	Increment the counter of elements in the array by 1 step
+
+Compute the sum of the elements of the array using a do-while loop :
+	Initialize a variable "sum" to hold the sum of the elements of the array
+	Initialize a counter of elements in the array
+	Update sum by adding the first element of the array
+	Repeat that operation while counter is less than the length of the array
+
+Print the value of "sum" for each loop computation

@@ -1,0 +1,20 @@
+Pseudocode for State of Numbers
+
+Prompt user to input a floating-point number
+Read in a floating-point number from the user
+Store input in variable "integer"
+
+If "integer" value matches 0
+	print "Zero"
+Else If "integer" value matches a value less than 0
+	print "Negative"
+Else If "integer" value matches a value greater than 0
+	print "Positive"
+Else If "integer" value matches a value that's both negative and it's absolute value is less than 1
+	print "Negative small"
+Else if "integer" value matches a value that's both negative and it's absolute value is greater than 1,000,000
+	print "Negative large"
+Else If "integer" value matches a value that's both positive and it's absolute value is less than 1 
+	print "Positive small"
+Else If "integer" value matches a value that's both positive and it's absolute value is greater than 1,000,000
+	print

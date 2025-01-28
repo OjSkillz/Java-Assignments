@@ -1,0 +1,9 @@
+Pseudocode for Perfect Numbers
+
+Initialize a variable to store the sum of integers to zero
+Prompt user to enter a number
+Read in user's input
+	If user's input is equal to the sum of it's proper divisors
+		Print the aapproppriate message
+	Else
+		Print the appropriate message

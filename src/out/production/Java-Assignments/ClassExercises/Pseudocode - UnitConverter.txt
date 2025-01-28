@@ -1,0 +1,14 @@
+STAGE 1
+
+1. Prompt and collect a number in pounds
+2. Convert number in pounds to kilograms
+3. Display result
+
+STAGE 2
+
+1. Prompt user to input a number in pounds
+2. Collect input
+3. Store as "poundsValue"
+4. Convert poundsValue to kilograms using the formula poundsValue * 0.454
+5. Store result as kiloValue
+6. Display result

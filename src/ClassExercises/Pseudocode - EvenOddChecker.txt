@@ -1,0 +1,17 @@
+Pseudocode EvenOddChecker
+
+STAGE 1 
+
+1. Prompt and collect a number
+2. Check whether the number is even or odd
+3. Display the result
+
+
+STAGE 2
+
+1. Prompt user to input a number
+2. Collect and store input as "usersNumber"
+3. Check whether usersNumber is an even number or an odd number:
+	an even number is a number that yields a remainder of 0 when divided by 2
+	an odd number is a number whose remainder when divided by 2 is not 0
+4. Display the result of the evaluation

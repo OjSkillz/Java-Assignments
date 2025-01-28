@@ -1,0 +1,12 @@
+Pseudocode for Number Identifier
+
+Display a message describing what operation to be carried out
+Prompt user to enter the lower and upper bounds of a preferred range
+Check for the numbers within the specified range that is divisible by both 7 and 13
+	If there are any, 
+		print the very first	
+If there is no such number
+	print an appropriate message
+
+
+

@@ -1,0 +1,15 @@
+STAGE 1
+
+1. Prompt and collect the number of sides on the polygon
+2. Prompt and collect the length of one of the sides of the polygon
+3. Calculate the area of the polygon
+4. Display the result
+
+STAGE 2
+1. Prompt user to input the number of sides on the polygon
+2. Collect input and store as "numberOfSides"
+3. Prompt user to input the length of one of the sides of the polygon
+4. Collect input and store as "lengthOfOneSide"
+5. Calculate the area of the polygon
+6. Store result as "areaOfPolygon"
+7. Display result																

@@ -1,0 +1,6 @@
+Psuedocode GreatestNumberChecker
+
+1. Prompt user to input three numbers
+2. Collect and store them as "firstNumber", "secondNumber" and "thirdNumber" respectively
+3. Check which of the three numbers is the greatest 
+4. Display result 

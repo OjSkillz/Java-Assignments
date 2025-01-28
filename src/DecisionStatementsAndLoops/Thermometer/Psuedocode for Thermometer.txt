@@ -1,0 +1,13 @@
+
+Psuedocode for Thermometer
+
+Prompt user to enter temperature in celsius
+Collect input and store as "temperatureInCelsius"
+if temperatureInCelsius < 10
+	Print "cold"
+else if temperatureInCelsius is between 10 and 25 
+	Print "warm"
+else 
+	Print "hot"
+
+

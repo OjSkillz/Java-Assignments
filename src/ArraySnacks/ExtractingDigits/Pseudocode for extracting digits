@@ -1,0 +1,8 @@
+Initialize a variable to hold an integer
+Create an array equal in size to the length of the integer
+Extract the digits of the integer 
+Add each digits of the integer as elements to the array created
+
+
+
+

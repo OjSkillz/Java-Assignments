@@ -1,0 +1,7 @@
+Pseudocode for Company Assessment
+
+Prompt user to enter their department from the options IT, HR and Finance
+Collect and store as "department"
+Prompt user to select their role from the options Manager, Analyst and Intern
+Collect and store as "role"
+Display a custom message "Dear 'department' 'role', well done 👍"

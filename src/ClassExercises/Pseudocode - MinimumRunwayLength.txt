@@ -1,0 +1,17 @@
+STAGE 1:
+
+1. Prompt and collect velocity and acceleration of the airplane
+2. Calculate the minimum runway length
+3. Display the result
+
+STAGE 2
+
+1. Prompt the user to input the velocity of the airplane in m/s
+2. Collect input 
+3. Store as "velocity"
+4. Prompt the user to input the acceleration of the airplane in m/s2
+5. Collect input 
+6. Store as "acceleration" 
+7. Calculate the minimum runway length using the formula (velocity *velocity) / (2  * acceleration)
+8. Store result as "length"
+9. Display the result 

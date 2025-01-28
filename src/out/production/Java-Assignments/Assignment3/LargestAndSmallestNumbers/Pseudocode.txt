@@ -1,0 +1,7 @@
+Largest and Smallest numbers
+
+Prompt user to enter numbers: they can type stop when they wish to stop
+
+when user stops inputing numbers, check for the largest and smallest numbers entered
+Display the results
+

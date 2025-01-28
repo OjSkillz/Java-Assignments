@@ -1,0 +1,9 @@
+Pseudocode for Rankings 
+
+Prompt user to enter their rank between 1 and 4
+Collect and store as "rankNumber"
+Display the rank that matches rankNumber from the list:
+	1:  "Gold"
+	2: "Silver"
+	3: "Bronze"
+	4: "Participant ribbon"

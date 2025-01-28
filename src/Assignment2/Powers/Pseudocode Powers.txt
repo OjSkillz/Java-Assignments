@@ -1,0 +1,20 @@
+Pseudocode : Powers
+
+Stage 1:
+1. Prompt and collect two whole numbers 
+2. Raise either numbers to the power of the other.
+3. Display results.
+
+Stage 2:
+
+1. Prompt user to input two whole numbers
+2. Collect both numbers
+3. Store as "x" and "y" respectively
+4. Prompt user to select either of two options 1 and 2 where:
+	1 is "Type "A" to raise x to the power of y
+    and 2 is "Type "B" to raise y to the power of x
+5. Store selection as "response" 
+6. If response is A, raise x to the power of y while 
+	
+7. If response is B, raise y to the power of x
+8. Display results based on selection of user.
