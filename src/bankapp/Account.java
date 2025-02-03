@@ -1,58 +1,59 @@
 package bankapp;
 
-import java.security.SecureRandom;
+import java.util.EmptyStackException;
 
 public class Account {
-    private String customerName;
-    private double balance;
-    private String bvn;
+    private String firstName;
+    private String lastName;
     private String pin;
+    private String bvn;
+    private double balance;
     private long accountNumber;
 
-    SecureRandom random = new SecureRandom();
+    public Account(long accountNumber, String firstName, String lastName, String pin, String bvn) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.pin = pin;
+        this.bvn = bvn;
+        this.accountNumber = accountNumber;
+    }
 
-    public void setAccountNumber() {
-       accountNumber = 2040706104L + random.nextLong(500) * 1000;
+
+    public double checkBalance(String pin) {
+       if(validate(pin))
+            return balance;
+       throw new IllegalArgumentException("Invalid pin!");
+    }
+
+
+    public void deposit(double depositAmount) {
+        if (depositAmount <= 0) throw new IllegalArgumentException("Deposit Amount Must Be Greater Than Zero!");
+        balance += depositAmount;
+    }
+
+    public void withdraw(double withdrawalAmount, String pin) {
+        if (withdrawalAmount > balance) throw new IllegalArgumentException("Cannot withdraw more than current balance!");
+        if (withdrawalAmount <= 0) throw new IllegalArgumentException("Cannot withdraw less than current balance!");
+        if (!validate(pin)) throw new IllegalArgumentException("Invalid Pin!");
+        balance -= withdrawalAmount;
+    }
+
+    public String getAccountName() {
+        return firstName + " " + lastName;
     }
 
     public long getAccountNumber() {
         return accountNumber;
     }
 
-    public void setName(String name) {
-        customerName = name;
-    }
-    public String getName() {
-        return customerName;
+    public void updatePin(String oldPin, String newPin) {
+        if(!validate(oldPin))
+            throw new IllegalArgumentException("Invalid Old Pin!");
+        pin = newPin;
+
     }
 
-    public void setBvn(String bvn) {
-        this.bvn = bvn;
-    }
-
-    public String getBvn() {
-        return bvn;
-    }
-    public void setPin(String pin) {
-        if (pin.length() == 4)
-            this.pin = pin;
-        else throw new IllegalArgumentException("Invalid pin");
-    }
-
-    public String getPin() {
-        return pin;
-    }
-
-    public void deposit(double amount) {
-        balance += amount;
-    }
-
-    public void withdraw(double amount) {
-        if (amount > balance) throw new IllegalArgumentException("Insufficient balance");
-        else balance -= amount;
-    }
-
-    public double getBalance() {
-        return balance;
+    public boolean validate(String pin) {
+        return this.pin.equals(pin);
     }
 }

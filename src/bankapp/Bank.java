@@ -1,111 +1,106 @@
 package bankapp;
 
+import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Bank {
+    private String name = "SCABank";
+    private List<Account> accounts = new ArrayList<>();
 
-    private String name;
-    private List<Account> accounts = new ArrayList<Account>();
 
-    public void setName(String name){
-        this.name = name;
+    public void createAccount(String firstName, String lastName, String correctPin, String bvn) {
+        validatePinUniqueness(correctPin);
+        validatePinLength(correctPin);
+        long accountNumber = generateAccountNumber();
+        Account account = new Account(accountNumber,firstName, lastName, correctPin, bvn);
+
+        accounts.add(account);
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void createNewAccount(String accountName, String bvn, String pin){
-        Account newAccount = new Account();
-        checkUniquenessOfAccount(accountName, pin);
-        validateBvn(bvn);
-        newAccount.setName(accountName);
-        newAccount.setBvn(bvn);
-        newAccount.setPin(pin);
-        newAccount.setAccountNumber();
-        accounts.add(newAccount);
-    }
-
-    public void deposit(long accountNumber, double amount){
-
-        if (amount <= 0.0) throw new IllegalArgumentException("Deposit Amount must be greater than #0.00!");
-        findAccount(accountNumber).deposit(amount);
-    }
-
-
-    public void withdraw(long accountNumber, double amount, String pin) {
-
-        if (amount <= 0.0) throw new IllegalArgumentException("Withdrawal Amount must be greater than #0.00!");
-        findAccount(accountNumber, pin).withdraw(amount);
-
-    }
-
-    public void transfer(long sourceAccountNumber, long destinationAccountNumber, double amount, String pin){
-        if (sourceAccountNumber == destinationAccountNumber) {
-            throw new IllegalArgumentException("Source and Destination Accounts Cannot Be Same!");
-        }
-        withdraw(sourceAccountNumber, amount, pin);
-        deposit(destinationAccountNumber, amount);
-    }
-
-    public int getNumberOfAccounts(){
-     return accounts.size();
+    private long generateAccountNumber() {
+        SecureRandom random = new SecureRandom();
+        return 2040706104L + random.nextLong(500) * 1000;
     }
 
     public long getAccountNumber(String accountName, String pin) {
-        long accountNumber = 0;
-        for (Account account : accounts) {
-            if (account.getName().equals(accountName) && account.getPin().equals(pin)) {
-                accountNumber = account.getAccountNumber();
-            }
+        return findAccountBy(accountName, pin).getAccountNumber();
+
+    }
+
+    public String getAccountName(String correctPin) {
+
+        return findAccountBy(correctPin).getAccountName();
+    }
+
+    public void deposit(long accountNumber, double depositAmount) {
+        this.findAccountBy(accountNumber).deposit(depositAmount);
         }
-        if (accountNumber == 0 ) throw new IllegalArgumentException("Invalid Credentials!");
-        return accountNumber;
+
+
+    public double checkBalance(long accountNumber, String correctPin) {
+
+        return this.findAccountBy(accountNumber).checkBalance(correctPin);
     }
 
-    public double displayBalance(long accountNumber, String pin) {
-
-        return findAccount(accountNumber, pin).getBalance();
+    public String bankName() {
+        return name;
     }
 
-    public void closeAccount(long accountNumber, String pin) {
-                accounts.remove(findAccount(accountNumber, pin));
-            }
+    public int getNumberOfAccounts() {
+        return accounts.size();
+    }
 
-    public void validateBvn(String bvn) {
-        for (Account account : accounts) {
-            if (account.getBvn().equals(bvn)) {
-                throw new IllegalArgumentException("BVN already registered to another account!");
-            }
+    public void withdraw(long accountNumber, double withdrawalAmount, String correctPin) {
+        findAccountBy(accountNumber).withdraw(withdrawalAmount, correctPin);
         }
+
+
+    public void transfer(long senderAccountNumber, long receiverAccountNumber, double transferAmount, String pin) {
+        findAccountBy(senderAccountNumber).withdraw(transferAmount, pin);
+        findAccountBy(receiverAccountNumber).deposit(transferAmount);
+
     }
 
-    public void checkUniquenessOfAccount(String accountName, String pin) {
-            if (findAccount(accountName, pin)) throw new IllegalArgumentException("Account Details Already Registered To Another Customer");
-    }
-
-    public Account findAccount(long accountNumber, String pin) {
-        for (Account account1 : accounts) {
-            if (account1.getAccountNumber() == accountNumber && account1.getPin().equals(pin)) return account1;
-        }
-        throw new IllegalArgumentException("Invalid Credentials! Try again later..");
-    }
-
-    public Account findAccount(long accountNumber) {
-        for (Account account1 : accounts) {
-            if (account1.getAccountNumber() == accountNumber) return account1;
-        }
-        throw new IllegalArgumentException("Invalid Account Details! Try again later..");
-    }
-
-    public boolean findAccount(String accountName, String pin) {
+    public Account findAccountBy(long accountNumber) {
         for (Account account: accounts) {
-            if (account.getName().equals(accountName) && account.getPin().equals(pin)) return true;
+            if (account.getAccountNumber() == accountNumber) return account;
         }
-        return false;
+        throw new RuntimeException("Account not found!");
     }
 
+    public Account findAccountBy(String accountName, String pin) {
+        for (Account account : accounts) {
+            if (account.getAccountName().equals(accountName) && account.validate(pin))
+                return account;
+        }
+       throw new RuntimeException("Account not found!");
+    }
 
+    public Account findAccountBy(String pin) {
+        for (Account account : accounts) {
+            if (account.validate(pin))
+                return account;
+        }
+        throw new RuntimeException("Account not found!");
 
+    }
+
+    public void closeAccount(String accountName, String pin) {
+        accounts.remove(findAccountBy(accountName, pin));
+    }
+
+    public void updatePin(long accountNumber, String oldPin, String newPin) {
+        findAccountBy(accountNumber).updatePin(oldPin, newPin);
+    }
+
+    private void validatePinUniqueness(String pin) {
+        for (Account account : accounts) {
+            if (account.validate(pin)) throw new IllegalArgumentException("Pin already taken by another account!");
+        }
+    }
+
+    private void validatePinLength(String correctPin) {
+        if (correctPin.length() != 4) throw new IllegalArgumentException("Pin must be 4-digits long!");
+    }
 }
