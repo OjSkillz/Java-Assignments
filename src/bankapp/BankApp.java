@@ -9,13 +9,13 @@ public class BankApp {
 
     public static void main(String[] args) {
         String title = boldText + "Welcome to " + bank.bankName() + normalText;
-        System.out.println(title);
+        System.out.println("\n" + title);
         menu();
     }
 
     public static void menu() {
 
-        String options = """
+        String options = boldText + """
                 
                 1. Open Account
                 2. Deposit
@@ -84,8 +84,8 @@ public class BankApp {
         try {
             bank.createAccount(firstName, lastName, pin, bvn);
 
-            String accountDetails = "\nAccount name: " + bank.getAccountName(pin) + "\nAccount number: " + bank.getAccountNumber(bank.getAccountName(pin), pin);
-            System.out.println("Account successfully created" + accountDetails);
+            String accountDetails = "\nAccount name: " + normalText + bank.getAccountName(pin) + boldText + "\nAccount number: " + normalText + bank.getAccountNumber(bank.getAccountName(pin), pin);
+            System.out.println("Account successfully created >> " + accountDetails);
         }
         catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
@@ -96,7 +96,7 @@ public class BankApp {
 
     private static void deposit() {
 
-        System.out.print("Account number >> ");
+        System.out.print(boldText + "Account number >> ");
         long accountNumber = input.nextLong();
 
 
@@ -105,7 +105,7 @@ public class BankApp {
 
         try {
             bank.deposit(accountNumber, depositAmount);
-            System.out.println("Deposit successful!");
+            System.out.println(normalText + "Deposit successful!");
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
             System.out.println();
@@ -116,7 +116,7 @@ public class BankApp {
 
     private static void withdraw() {
 
-        System.out.print("Account number >> ");
+        System.out.print(boldText + "Account number >> ");
         long accountNumber = input.nextLong();
 
 
@@ -128,6 +128,7 @@ public class BankApp {
 
         try {
             bank.withdraw(accountNumber, withdrawAmount, pin);
+            System.out.println(normalText + "Withdrawal successful!");
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
             System.out.println();
@@ -138,7 +139,7 @@ public class BankApp {
 
 
     private static void checkBalance() {
-        System.out.print("Account number >> ");
+        System.out.print(boldText + "Account number >> ");
         long accountNumber = input.nextLong();
 
         System.out.print("4-digit Pin >> ");
@@ -146,7 +147,7 @@ public class BankApp {
 
         try {
             double balance = bank.checkBalance(accountNumber, pin);
-            System.out.println("Dear " + bank.getAccountName(pin) + ", you have a balance of #" + String.format("%,.2f", balance));
+            System.out.println(normalText + "Dear " + boldText + bank.getAccountName(pin) + normalText + ", you have a balance of #" + boldText + String.format("%,.2f", balance));
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
             System.out.println();
@@ -193,7 +194,7 @@ public class BankApp {
 
         try {
             bank.transfer(senderAccountNumber, receiverAccountNumber, transferAmount, pin);
-            System.out.println("Transfer successful!");
+            System.out.println(normalText + "Transfer successful!");
         }
         catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
@@ -203,7 +204,7 @@ public class BankApp {
     }
 
     private static void updatePin() {
-        System.out.print("Your account number >> ");
+        System.out.print(boldText + "Your account number >> ");
         long accountNumber = input.nextLong();
 
         System.out.print("Old pin >> ");
@@ -214,7 +215,7 @@ public class BankApp {
 
         try {
             bank.updatePin(accountNumber, oldPin, newPin);
-            System.out.println("Pin changed successfully.");
+            System.out.println(normalText + "Pin changed successfully.");
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
             System.out.println("Operation suspended. Please try again later.");
@@ -224,7 +225,7 @@ public class BankApp {
     }
 
     private static void closeAccount() {
-        System.out.print("Are you sure you want to close your account? (y/n)");
+        System.out.print(boldText + "Are you sure you want to close your account? (y/n)");
         String answer = input.next();
         switch (answer) {
             case "y":
@@ -238,14 +239,16 @@ public class BankApp {
 
                 try {
                     bank.closeAccount(accountName, pin);
+                    System.out.println(normalText + "We're sorry to see you go.");
+                    exit();
                 }
                 catch (IllegalArgumentException e) {
                     System.out.println(e.getMessage());
                 }
                 break;
                 case "n":
-
-                    exit();
+                    System.out.println("We're glad you changed your mind!");
+                    menu();
                     break;
                     default: System.out.println("Invalid selection");
                     closeAccount();
@@ -270,7 +273,7 @@ public class BankApp {
     }
 
     private static void exit() {
-        System.out.println("Thanks for using SCABank, bye!");
+        System.out.println(boldText + "Thanks for using SCABank, bye!");
         System.exit(0);
     }
 }
