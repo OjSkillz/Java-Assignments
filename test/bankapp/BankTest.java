@@ -173,25 +173,6 @@ public class BankTest {
         assertEquals(10_000.00, bank.checkBalance(senderAccountNumber, "4567"));
     }
 
-//    @Test
-//    public void deposit50k_transfer10k_bankValidatesReceiverAccountBeforeTransferTest() {
-//        Bank bank = new Bank();
-//        bank.createAccount("John", "Smith", "4567", "3475838839");
-//        bank.createAccount("Michael", "Jinad", "5578", "65742839948" );
-//        String senderName = bank.getAccountName("4567");
-//        long senderAccountNumber = bank.getAccountNumber(senderName, "4567");
-//        double depositAmount = 50_000.00;
-//        bank.deposit(senderAccountNumber, depositAmount);
-//
-//        long receiverAccountNumber = 25L;
-//
-//        double transferAmount = 10_000.00;
-//
-//        bank.transfer(senderAccountNumber, receiverAccountNumber, transferAmount, "4567");
-//
-//        assertEquals(50_000.00, bank.checkBalance(senderAccountNumber, "4567"));
-//
-//    }
 
     @Test
     public void openMultipleAccounts_closeAccount_findAccountThrowsIllegalArgumentExceptionTest() {
