@@ -1,8 +1,6 @@
 package noughtsandcrossesmapper;
 
 
-import java.util.Arrays;
-
 
 public class NoughtsAndCrossesMapper {
 
@@ -21,22 +19,3 @@ public class NoughtsAndCrossesMapper {
 
 
 }
-//
-//
-//
-//
-//
-//
-//
-//
-//    public String[][] mapNoughtsAndCrosses(String[][] noughtsAndCrosses) {
-//
-//        return noughtsAndCrosses;
-//    }
-//
-//    public static void displayMappedNoughtsAndCrosses(String[][] noughtsAndCrosses) {
-//
-//    }
-//
-//
-//}
